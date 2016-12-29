@@ -1,0 +1,166 @@
+body{
+  margin-top: 5px;
+}
+.container{
+  max-width: 1137px;
+}
+.header-nav{
+  margin-top: 25px;
+}
+.header-nav li.active a, .header-nav li.active a:hover, .header-nav li.active a:active, .header-nav li.active a:focus, .header-nav li.active a:visited{
+  background-color: #9c1780;
+}
+.header-nav li.space{
+  display: block;
+  padding: 10px 0;
+  font-weight: 600;
+}
+.header-nav a{
+  color: #565656;
+  font-weight: 600;
+}
+.header-nav a.purple{
+  color: #9c1780;
+}
+@media (max-width: 992px){
+  .header-nav li a{
+    font-size: 10px;
+  }
+  .header-nav li.space{
+    font-size: 10px;
+  }
+}
+.menu-responsive{
+  margin-top: 40px;
+}
+.menu-responsive button{
+  background: #a11580; /* Old browsers */
+  background: -moz-linear-gradient(top, #a11580 0%, #e1017b 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #a11580 0%,#e1017b 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #a11580 0%,#e1017b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a11580', endColorstr='#e1017b',GradientType=0 ); /* IE6-9 */
+  color: #fff;
+  border: none;
+}
+.menu-responsive button:hover{
+  background: #a11580; /* Old browsers */
+  color: #fff;
+}
+.menu-responsive .dropdown-toggle.btn-default:hover{
+  background: #a11580; /* Old browsers */
+  color: #fff;
+}
+.menu-responsive .dropdown-menu li.active a{
+  background-color: #9c1780;
+}
+/* Sldier */
+#jobforus-slider{
+  max-width: 1360px;
+  margin: 30px auto;
+}
+#jobforus-slider .carousel-caption{
+  bottom: 30%;
+}
+#jobforus-slider .title{
+  font-size: 32px;
+}
+#jobforus-slider .form button{
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#a11580+0,e1017b+100 */
+  background: #a11580; /* Old browsers */
+  background: -moz-linear-gradient(top, #a11580 0%, #e1017b 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #a11580 0%,#e1017b 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #a11580 0%,#e1017b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a11580', endColorstr='#e1017b',GradientType=0 ); /* IE6-9 */
+  color: #fff;
+  border: none;
+}
+@media (max-width: 762px){
+  #jobforus-slider img{
+    min-height: 220px;
+  }
+  #jobforus-slider .title{
+    font-size: 18px;
+  }
+  #jobforus-slider .carousel-caption{
+    bottom: 0px;
+  }
+}
+/* Landing */
+.landing-title{
+  color: #414142;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.text-content{
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.landing-table{
+  border: 1px solid #eeeeee;
+  border-radius: 5px;
+  margin-top: 30px;
+}
+.landing-table >tbody>tr>td{
+  border-top: none;
+  vertical-align: middle;
+  padding: 15px;
+}
+.landing-table >tbody>tr>td .purple{
+  color: #ad117f;
+  font-size: 18px;
+  font-weight: 600;
+}
+.landing-table >tbody>tr>td .author{
+  color: #9a8989;
+  font-size: 18px;
+  font-weight: 600;
+}
+.landing-table .calendar{
+  color: #d3d3d3;
+  font-size: 18px;
+  text-align: center;
+}
+.landing-table .purple-location{
+  color: #ad117f;
+}
+.landing-table .purple-post{
+  color: #9a8989;
+}
+#black-section{
+  background-color: #414142;
+  margin-top: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+#black-section .landing-title{
+  color: #fff;
+}
+#black-section .center-box{
+  border-right: 1px solid #afaeae;
+  border-left: 1px solid #afaeae;
+}
+@media (max-width: 992px){
+  #black-section .center-box{
+    border-right: none;
+    border-left: none;
+  }
+}
+#black-section .footer-box{
+  color: #fff;
+  padding: 10px 40px 40px;
+}
+#black-section .footer-box p{
+  margin-top: 15px;
+}
+#purple-section{
+  background-color: #9c1780;
+  padding: 30px 0;
+  color: #fff;
+  font-size: 12px;
+}
+.panel-jobforus li a{
+  color: #9c1780;
+}
+.panel-jobforus .tab-pane{
+  padding-top: 30px;
+}
