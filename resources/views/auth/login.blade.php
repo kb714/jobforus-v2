@@ -1,24 +1,28 @@
-@extends('layouts.app')
+@extends('layouts.public')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Inicio de sesión</div>
-                <div class="panel-body">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <div class="landing-title">Inicio de sesión</div>
+                <img src="/images/separator.png" alt="Separador" width="100%">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-10 col-md-6 col-md-offset-3 col-xs-offset-1">
+                <div class="text-content">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">Correo electrónico</label>
+                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Usuario</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
 
-                                @if ($errors->has('email'))
+                                @if ($errors->has('name'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>{{ $errors->first('name') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -64,5 +68,4 @@
             </div>
         </div>
     </div>
-</div>
 @endsection

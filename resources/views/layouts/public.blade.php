@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/css/app.css">
 </head>
 <body>
-<div class="container">
+<div class="container margin-top-public">
     <div class="row">
         <div class="col-xs-12">
             <div class="social-networks text-right">
@@ -25,12 +25,21 @@
         </div>
         <div class="col-xs-9 col-md-10">
             <ul class="header-nav nav nav-pills pull-right hidden-xs">
-                <li class="active"><a href="index.php">Inicio</a></li>
-                <li><a href="como-funciona.php">Cómo funciona</a></li>
-                <li><a href="transparentes.php">Transparentes</a></li>
-                <li><a href="contacto.php">Contáctenos</a></li>
-                <li><a class="purple" href="login.php">Login</a></li>
-                <li><a class="purple" href="registro.php">Registro</a></li>
+                <li class="active"><a href="{{route('home')}}">Inicio</a></li>
+                <li><a href="#">Cómo funciona</a></li>
+                <li><a href="#">Transparentes</a></li>
+                <li><a href="#">Contáctenos</a></li>
+                @if(Auth::check())
+                    <li><a class="purple" href="{{route('dashboard')}}">Mi cuenta TIPO <span class="badge">gratuita</span></a></li>
+                    <li><a class="purple" href="{{route('logout')}}" onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">Desconectar</a></li>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
+                @else
+                    <li><a class="purple" href="{{route('login')}}">Login</a></li>
+                    <li><a class="purple" href="{{route('register')}}">Registro</a></li>
+                @endif
             </ul>
             <div class="dropdown visible-xs menu-responsive pull-right">
                 <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
@@ -38,12 +47,12 @@
                     <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu">
-                    <li class="active"><a href="index.php">Inicio</a></li>
-                    <li><a href="como-funciona.php">Cómo funciona</a></li>
-                    <li><a href="transparentes.php">Transparentes</a></li>
-                    <li><a href="contacto.php">Contáctenos</a></li>
-                    <li><a class="purple" href="login.php">Login</a></li>
-                    <li><a class="purple" href="registro.php">Registro</a></li>
+                    <li class="active"><a href="{{route('home')}}">Inicio</a></li>
+                    <li><a href="#">Cómo funciona</a></li>
+                    <li><a href="#">Transparentes</a></li>
+                    <li><a href="#">Contáctenos</a></li>
+                    <li><a class="purple" href="{{route('login')}}">Login</a></li>
+                    <li><a class="purple" href="{{route('register')}}">Registro</a></li>
                 </ul>
             </div>
         </div>
@@ -63,11 +72,6 @@
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="¿A quién buscas? Ingresa aquí tu(s) palabra(s) o frase(s) idóneas">
                         </div>
-                        <div class="form-group">
-                            <select class="form-control">
-                                <option>Dónde</option>
-                            </select>
-                        </div>
                         <button type="submit" class="btn btn-default"><b>Encontrar</b></button>
                     </form>
                 </div>
@@ -84,11 +88,6 @@
                     <form class="form-inline">
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Cargo o área profesional">
-                        </div>
-                        <div class="form-group">
-                            <select class="form-control">
-                                <option>Dónde</option>
-                            </select>
                         </div>
                         <button type="submit" class="btn btn-default"><b>Encontrar</b></button>
                     </form>
