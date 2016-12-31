@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace JobForUs\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
+use JobForUs\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -43,6 +43,6 @@ class LoginController extends Controller
      */
     public function username()
     {
-        return 'name';
+        return 'username';
     }
 }

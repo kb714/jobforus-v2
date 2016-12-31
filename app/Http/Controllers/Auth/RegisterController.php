@@ -1,10 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace JobForUs\Http\Controllers\Auth;
 
-use App\User;
+use JobForUs\Model\Location;
+use JobForUs\Model\Region;
+use JobForUs\User;
+use JobForUs\Model\JobType;
 use Validator;
-use App\Http\Controllers\Controller;
+use JobForUs\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
@@ -47,11 +50,38 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6|confirmed',
-        ]);
+        if($data['user_type'] == 4){
+            // Person type validator
+            return Validator::make($data, [
+                'username'      => 'required|max:255|unique:users',
+                'email'         => 'required|email|max:255|unique:users',
+                'password'      => 'required|min:6|confirmed',
+                'identifier'    => 'required',
+                'job_type_id'   => 'required|exists:job_types,id'
+            ]);
+        }else{
+            // Company type validator
+            return Validator::make($data, [
+                'username'      => 'required|max:255|unique:users',
+                'email'         => 'required|email|max:255|unique:users',
+                'password'      => 'required|min:6|confirmed',
+                'identifier'    => 'required'
+            ]);
+        }
+    }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showRegistrationForm()
+    {
+        $this->data = [
+            'jobs_types'    => JobType::where('status', 1)->orderBy('weight')->get(),
+            'locations'     => Location::where('status', 1)->orderBy('weight')->get(),
+            'regions'       => Region::where('status', 1)->orderBy('weight')->get()
+        ];
+
+        return view('auth.register', $this->data);
     }
 
     /**
@@ -62,10 +92,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+        $data = User::build($data);
+
+        return $data;
     }
 }

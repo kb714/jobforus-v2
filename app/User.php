@@ -1,9 +1,11 @@
 <?php
 
-namespace App;
+namespace JobForUs;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Auth;
+use JobForUs\Model\Profile;
 
 class User extends Authenticatable
 {
@@ -15,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'username', 'email', 'password',
     ];
 
     /**
@@ -26,4 +28,29 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function profile()
+    {
+        return $this->hasOne('JobForUs\Model\Profile');
+    }
+
+    /**
+     * @param array $data
+     * @return static
+     */
+    public static function build(array $data)
+    {
+        $user = User::create([
+            'username' => $data['username'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
+        ]);
+
+        $user->profile()->save(new Profile($data));
+
+        return $user;
+    }
 }

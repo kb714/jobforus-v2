@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace JobForUs\Http\Controllers;
 
 use Illuminate\Http\Request;
 
@@ -12,7 +12,9 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        //$this->middleware('auth');
+        $this->data = [
+            'slider' => true
+        ];
     }
 
     /**
@@ -22,6 +24,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view(__FUNCTION__);
+        return view(__FUNCTION__, $this->data);
     }
 }

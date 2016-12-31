@@ -172,11 +172,12 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        JobForUs\Providers\AppServiceProvider::class,
+        JobForUs\Providers\AuthServiceProvider::class,
+        // JobForUs\Providers\BroadcastServiceProvider::class,
+        JobForUs\Providers\EventServiceProvider::class,
+        JobForUs\Providers\RouteServiceProvider::class,
+        Laracasts\Utilities\JavaScript\JavaScriptServiceProvider::class
 
     ],
 

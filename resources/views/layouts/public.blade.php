@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/css/app.css">
 </head>
 <body>
-<div class="container margin-top-public">
+<div id="app" class="container margin-top-public">
     <div class="row">
         <div class="col-xs-12">
             <div class="social-networks text-right">
@@ -30,7 +30,10 @@
                 <li><a href="#">Transparentes</a></li>
                 <li><a href="#">Contáctenos</a></li>
                 @if(Auth::check())
-                    <li><a class="purple" href="{{route('dashboard')}}">Mi cuenta TIPO <span class="badge">gratuita</span></a></li>
+                    <li><a class="purple" href="{{route('dashboard')}}">
+                            Mi cuenta {{Auth::user()->profile->getUserType()}}
+                            <span class="badge">gratuita</span></a>
+                    </li>
                     <li><a class="purple" href="{{route('logout')}}" onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">Desconectar</a></li>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -58,6 +61,7 @@
         </div>
     </div>
 </div>
+@if(isset($slider))
 <div id="jobforus-slider" class="carousel slide" data-ride="carousel">
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
@@ -107,6 +111,7 @@
     </a>
     -->
 </div>
+@endif
 <div class="container">
     @yield('content')
 </div>
@@ -149,5 +154,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/js/app.js"></script>
+<script src="/js/materialize.js"></script>
 </body>
 </html>
