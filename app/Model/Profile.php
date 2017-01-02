@@ -8,7 +8,11 @@ class Profile extends Model
 {
 
     protected $fillable = [
-        'identifier', 'phone', 'facebook', 'twitter', 'other', 'job_type_id', 'location_id', 'region_id'
+        'user_type', 'name', 'last_name', 'identifier', 'phone',
+        'facebook', 'twitter', 'other', 'job_type_id', 'location_id', 'region_id',
+        // company special field
+        'commercial_business', 'industry', 'address', 'company_contact_name',
+        'company_contact_position', 'company_contact_email', 'company_contact_phone'
     ];
 
     /**

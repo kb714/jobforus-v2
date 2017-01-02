@@ -112,7 +112,24 @@ return [
     */
 
     'attributes' => [
-        'password' => 'Contraseña'
+        'username'                  => 'usuario',
+        'password'                  => 'contraseña',
+        'user_type'                 => 'tipo de usuario',
+        'name'                      => 'nombre',
+        'identifier'                => 'RUT',
+        'last_name'                 => 'apellido',
+        'job_type_id'               => 'preferencia de trabajo',
+        'location_id'               => 'ubicación',
+        'region_id'                 => 'región',
+        'phone'                     => 'teléfono',
+        'other'                     => 'otro',
+        'commercial_business'       => 'giro',
+        'industry'                  => 'industria',
+        'address'                   => 'dirección',
+        'company_contact_name'      => 'nombre persona de contacto',
+        'company_contact_position'  => 'cargo persona de contacto',
+        'company_contact_email'     => 'email persona de contacto',
+        'company_contact_phone'     => 'teléfono persona de contacto'
     ],
 
 ];

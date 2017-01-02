@@ -542,6 +542,9 @@ $jumbotron-heading-font-size:    ceil(($font-size-base * 4.5)) !default;
 //== Form states and alerts
 //
 //## Define colors for form feedback states and, by default, alerts.
+$state-primary-bg:               $brand-primary !default;
+$state-primary-text:               #dff0d8 !default;
+$state-primary-border:           darken(adjust-hue($state-primary-bg, -10), 5%) !default;
 
 $state-success-text:             #3c763d !default;
 $state-success-bg:               #dff0d8 !default;
@@ -670,6 +673,10 @@ $modal-sm:                    300px !default;
 $alert-padding:               15px !default;
 $alert-border-radius:         $border-radius-base !default;
 $alert-link-font-weight:      bold !default;
+
+$alert-primary-bg:            $state-primary-bg !default;
+$alert-primary-text:          $state-primary-text !default;
+$alert-primary-border:        $state-primary-border !default;
 
 $alert-success-bg:            $state-success-bg !default;
 $alert-success-text:          $state-success-text !default;

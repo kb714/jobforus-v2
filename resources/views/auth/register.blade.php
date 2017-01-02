@@ -99,19 +99,62 @@
                             </div>
                         </div>
 
+                        {{-- PERSON REGISTRATION FIELDSET--}}
                         <fieldset v-if="user_type == 4" class="fieldset">
 
                             <legend class="text-center">Datos Personales</legend>
+
                             <span class="help-block text-center">
                                 <strong>Estos datos se usarán para que seas contactado</strong>
                             </span>
 
+                            {{-- PERSON NAME --}}
+                            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                                <label for="name" class="col-md-4 control-label">Nombre *</label>
+
+                                <div class="col-md-6">
+                                    <input id="name"
+                                           type="text"
+                                           class="form-control"
+                                           name="name"
+                                           {{old('name') ? 'value='.old('name').'' : null}}
+                                           required>
+
+                                    @if ($errors->has('name'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            {{-- PERSON LAST NAME --}}
+                            <div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">
+                                <label for="last_name" class="col-md-4 control-label">Apellido *</label>
+
+                                <div class="col-md-6">
+                                    <input id="last_name"
+                                           type="text"
+                                           class="form-control"
+                                           name="last_name"
+                                           {{old('last_name') ? 'value='.old('last_name').'' : null}}
+                                           required>
+
+                                    @if ($errors->has('last_name'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('last_name') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            {{-- PERSON IDENTIFIER --}}
                             <div class="form-group{{ $errors->has('identifier') ? ' has-error' : '' }}">
                                 <label for="identifier" class="col-md-4 control-label">RUT *</label>
 
                                 <div class="col-md-6">
                                     <input id="identifier"
-                                           type="identifier"
+                                           type="text"
                                            class="form-control"
                                            name="identifier"
                                            {{old('identifier') ? 'value='.old('identifier').'' : null}}
@@ -125,30 +168,32 @@
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('Phone') ? ' has-error' : '' }}">
-                                <label for="Phone" class="col-md-4 control-label">Teléfono</label>
+                            {{-- PERSON PHONE --}}
+                            <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
+                                <label for="phone" class="col-md-4 control-label">Teléfono</label>
 
                                 <div class="col-md-6">
-                                    <input id="Phone"
-                                           type="number"
+                                    <input id="phone"
+                                           type="text"
                                            class="form-control"
                                            {{old('phone') ? 'value='.old('phone').'' : null}}
                                            name="phone">
 
-                                    @if ($errors->has('Phone'))
+                                    @if ($errors->has('phone'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('Phone') }}</strong>
+                                        <strong>{{ $errors->first('phone') }}</strong>
                                     </span>
                                     @endif
                                 </div>
                             </div>
 
+                            {{-- PERSON FACEBOOK --}}
                             <div class="form-group{{ $errors->has('facebook') ? ' has-error' : '' }}">
                                 <label for="facebook" class="col-md-4 control-label">Facebook</label>
 
                                 <div class="col-md-6">
                                     <input id="facebook"
-                                           type="facebook"
+                                           type="text"
                                            class="form-control"
                                            {{old('facebook') ? 'value='.old('facebook').'' : null}}
                                            name="facebook">
@@ -161,12 +206,13 @@
                                 </div>
                             </div>
 
+                            {{-- PERSON TWITTER --}}
                             <div class="form-group{{ $errors->has('twitter') ? ' has-error' : '' }}">
                                 <label for="twitter" class="col-md-4 control-label">Twitter</label>
 
                                 <div class="col-md-6">
                                     <input id="twitter"
-                                           type="twitter"
+                                           type="text"
                                            class="form-control"
                                            {{old('twitter') ? 'value='.old('twitter').'' : null}}
                                            name="twitter">
@@ -179,12 +225,13 @@
                                 </div>
                             </div>
 
+                            {{-- PERSON OTHER --}}
                             <div class="form-group{{ $errors->has('other') ? ' has-error' : '' }}">
                                 <label for="other" class="col-md-4 control-label">Otro</label>
 
                                 <div class="col-md-6">
                                     <input id="other"
-                                           type="other"
+                                           type="text"
                                            class="form-control"
                                            {{old('other') ? 'value='.old('other').'' : null}}
                                            name="other">
@@ -197,11 +244,11 @@
                                 </div>
                             </div>
 
+                            {{-- PERSON JOB TYPE --}}
                             <div class="form-group{{ $errors->has('job_type_id') ? ' has-error' : '' }}">
                                 <label for="job_type_id" class="col-md-4 control-label">Preferencia de Trabajo *</label>
                                 <div class="col-md-6">
                                     <select id="job_type_id"
-                                            type="job_type_id"
                                             class="form-control"
                                             name="job_type_id"
                                             required>
@@ -219,6 +266,7 @@
                                 </div>
                             </div>
 
+                            {{-- PERSON LOCATION --}}
                             <div class="form-group{{ $errors->has('location_id') ? ' has-error' : '' }}">
                                 <label for="location_id" class="col-md-4 control-label">Ubicación *</label>
                                 <input id="current-location"
@@ -227,7 +275,6 @@
                                 <div class="col-md-6">
                                     <select v-model="location"
                                             id="location_id"
-                                            type="location_id"
                                             class="form-control"
                                             name="location_id"
                                             required>
@@ -243,6 +290,7 @@
                                 </div>
                             </div>
 
+                            {{-- PERSON REGION IF REQUIRED--}}
                             <div v-if="location == 1" class="form-group{{ $errors->has('region_id') ? ' has-error' : '' }}">
                                 <label for="region_id" class="col-md-4 control-label">Región *</label>
                                 <div class="col-md-6">
@@ -262,12 +310,215 @@
                             </div>
 
                         </fieldset>
+                        {{-- ./PERSON REGISTRATION FIELDSET --}}
 
-                        <fieldset v-else class="fieldset">
+                        {{-- ./COMPANY REGISTRATION FIELDSET --}}
+                        <fieldset v-else-if="user_type == 6" class="fieldset">
 
                             <legend class="text-center">Datos de Empresa</legend>
 
+                            {{-- COMPANY IDENTIFIER--}}
+                            <div class="form-group{{ $errors->has('identifier') ? ' has-error' : '' }}">
+                                <label for="identifier" class="col-md-4 control-label">RUT *</label>
+
+                                <div class="col-md-6">
+                                    <input id="identifier"
+                                           type="text"
+                                           class="form-control"
+                                           name="identifier"
+                                           {{old('identifier') ? 'value='.old('identifier').'' : null}}
+                                           required>
+
+                                    @if ($errors->has('identifier'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('identifier') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            {{-- COMPANY NAME --}}
+                            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                                <label for="name" class="col-md-4 control-label">Nombre o razón social *</label>
+
+                                <div class="col-md-6">
+                                    <input id="name"
+                                           type="text"
+                                           class="form-control"
+                                           name="name"
+                                           {{old('name') ? 'value='.old('name').'' : null}}
+                                           required>
+
+                                    @if ($errors->has('name'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            {{-- COMPANY COMMERCIAL BUSINESS --}}
+                            <div class="form-group{{ $errors->has('commercial_business') ? ' has-error' : '' }}">
+                                <label for="commercial_business" class="col-md-4 control-label">Giro *</label>
+
+                                <div class="col-md-6">
+                                    <input id="commercial_business"
+                                           type="text"
+                                           class="form-control"
+                                           name="commercial_business"
+                                           {{old('commercial_business') ? 'value='.old('commercial_business').'' : null}}
+                                           required>
+
+                                    @if ($errors->has('commercial_business'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('commercial_business') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            {{-- COMPANY INDUSTRY --}}
+                            <div class="form-group{{ $errors->has('industry') ? ' has-error' : '' }}">
+                                <label for="industry" class="col-md-4 control-label">Industria *</label>
+
+                                <div class="col-md-6">
+                                    <input id="industry"
+                                           type="text"
+                                           class="form-control"
+                                           name="industry"
+                                           {{old('industry') ? 'value='.old('industry').'' : null}}
+                                           required>
+
+                                    @if ($errors->has('industry'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('industry') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            {{-- COMPANY ADDRESS --}}
+                            <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
+                                <label for="address" class="col-md-4 control-label">Dirección *</label>
+
+                                <div class="col-md-6">
+                                    <input id="address"
+                                           type="text"
+                                           class="form-control"
+                                           name="address"
+                                           {{old('address') ? 'value='.old('address').'' : null}}
+                                           required>
+
+                                    @if ($errors->has('address'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('address') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            {{-- COMPANY PHONE --}}
+                            <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
+                                <label for="phone" class="col-md-4 control-label">Teléfono *</label>
+
+                                <div class="col-md-6">
+                                    <input id="phone"
+                                           type="text"
+                                           class="form-control"
+                                           name="phone"
+                                           {{old('phone') ? 'value='.old('phone').'' : null}}
+                                           required>
+
+                                    @if ($errors->has('phone'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('phone') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            {{-- COMPANY CONTACT NAME --}}
+                            <div class="form-group{{ $errors->has('company_contact_name') ? ' has-error' : '' }}">
+                                <label for="company_contact_name" class="col-md-4 control-label">Nombre persona de contacto *</label>
+
+                                <div class="col-md-6">
+                                    <input id="company_contact_name"
+                                           type="text"
+                                           class="form-control"
+                                           name="company_contact_name"
+                                           {{old('company_contact_name') ? 'value='.old('company_contact_name').'' : null}}
+                                           required>
+
+                                    @if ($errors->has('company_contact_name'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('company_contact_name') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            {{-- COMPANY CONTACT POSITION --}}
+                            <div class="form-group{{ $errors->has('company_contact_position') ? ' has-error' : '' }}">
+                                <label for="company_contact_position" class="col-md-4 control-label">Cargo persona de contacto *</label>
+
+                                <div class="col-md-6">
+                                    <input id="company_contact_position"
+                                           type="text"
+                                           class="form-control"
+                                           name="company_contact_position"
+                                           {{old('company_contact_position') ? 'value='.old('company_contact_position').'' : null}}
+                                           required>
+
+                                    @if ($errors->has('company_contact_position'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('company_contact_position') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            {{-- COMPANY CONTACT EMAIL --}}
+                            <div class="form-group{{ $errors->has('company_contact_email') ? ' has-error' : '' }}">
+                                <label for="company_contact_email" class="col-md-4 control-label">Email persona de contacto *</label>
+
+                                <div class="col-md-6">
+                                    <input id="company_contact_email"
+                                           type="text"
+                                           class="form-control"
+                                           name="company_contact_email"
+                                           {{old('company_contact_email') ? 'value='.old('company_contact_email').'' : null}}
+                                           required>
+
+                                    @if ($errors->has('company_contact_email'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('company_contact_email') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            {{-- COMPANY CONTACT PHONE --}}
+                            <div class="form-group{{ $errors->has('company_contact_phone') ? ' has-error' : '' }}">
+                                <label for="company_contact_phone" class="col-md-4 control-label">Teléfono persona de contacto *</label>
+
+                                <div class="col-md-6">
+                                    <input id="company_contact_phone"
+                                           type="text"
+                                           class="form-control"
+                                           name="company_contact_phone"
+                                           {{old('company_contact_phone') ? 'value='.old('company_contact_phone').'' : null}}
+                                           required>
+
+                                    @if ($errors->has('company_contact_phone'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('company_contact_phone') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
                         </fieldset>
+                        {{-- ./COMPANY REGISTRATION FIELDSET--}}
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">

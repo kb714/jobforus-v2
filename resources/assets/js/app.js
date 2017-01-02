@@ -7,10 +7,12 @@
 
 require('./bootstrap');
 
-const app = new Vue({
-    el: '#register',
-    data: {
-        user_type: document.getElementById('current-type').value,
-        location: document.getElementById('current-location').value
-    }
-});
+if(document.getElementById('current-type')){
+    const app = new Vue({
+        el: '#register',
+        data: {
+            user_type: document.getElementById('current-type') ? document.getElementById('current-type').value : null,
+            location: document.getElementById('current-location') ? document.getElementById('current-location').value : null
+        }
+    });
+}

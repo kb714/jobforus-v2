@@ -1,10 +1,22 @@
 @extends('layouts.public')
 
 @section('content')
+    @include('dashboard._partials._dashboard_header')
     <div class="row">
-        <div class="col-xs-12 text-center">
-            <div class="landing-title">Dashboard</div>
-            <img src="/images/separator.png" alt="Separador" width="100%">
+        @include('dashboard._partials._dashboard_menu')
+        {{-- Dashboard content --}}
+        <div class="col-md-8">
+            @if(Auth::user()->coverLetters->count() > 0)
+                <div class="help-block"><b>Mis cartas de presentación</b></div>
+            @else
+                <div class="text-center">
+                    <div class="help-block">Usted no tiene ninguna carta de presentación creada</div>
+                    <a href="{{route('dashboard.coverLetters.create')}}" class="btn btn-primary">
+                        Crear mi primer carta de presentación
+                    </a>
+                </div>
+            @endif
         </div>
+        {{-- dashboard content --}}
     </div>
 @endsection

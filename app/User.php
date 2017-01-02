@@ -5,6 +5,7 @@ namespace JobForUs;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Auth;
+use JobForUs\Model\Membership;
 use JobForUs\Model\Profile;
 
 class User extends Authenticatable
@@ -38,6 +39,19 @@ class User extends Authenticatable
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function membership()
+    {
+        return $this->hasOne('JobForUs\Model\Membership');
+    }
+
+    public function coverLetters()
+    {
+        return $this->hasMany('JobForUs\Model\CoverLetters');
+    }
+
+    /**
      * @param array $data
      * @return static
      */
@@ -50,6 +64,11 @@ class User extends Authenticatable
         ]);
 
         $user->profile()->save(new Profile($data));
+
+        if($data['user_type'] == 4)
+            $user->membership()->save(new Membership(['plan_id' => 1]));
+        else
+            $user->membership()->save(new Membership(['plan_id' => 2]));
 
         return $user;
     }

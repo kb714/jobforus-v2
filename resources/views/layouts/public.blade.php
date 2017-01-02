@@ -20,11 +20,11 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-xs-3 col-md-2">
+        <div class="col-lg-3 text-center">
             <img src="/images/logo.png" alt="Logo JobForUs">
         </div>
-        <div class="col-xs-9 col-md-10">
-            <ul class="header-nav nav nav-pills pull-right hidden-xs">
+        <div class="col-lg-9">
+            <ul class="header-nav center-pills nav nav-pills hidden-xs">
                 <li class="active"><a href="{{route('home')}}">Inicio</a></li>
                 <li><a href="#">Cómo funciona</a></li>
                 <li><a href="#">Transparentes</a></li>
@@ -32,7 +32,7 @@
                 @if(Auth::check())
                     <li><a class="purple" href="{{route('dashboard')}}">
                             Mi cuenta {{Auth::user()->profile->getUserType()}}
-                            <span class="badge">gratuita</span></a>
+                            <span class="badge">{{Auth::user()->membership->plan->name}}</span></a>
                     </li>
                     <li><a class="purple" href="{{route('logout')}}" onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">Desconectar</a></li>
@@ -44,9 +44,9 @@
                     <li><a class="purple" href="{{route('register')}}">Registro</a></li>
                 @endif
             </ul>
-            <div class="dropdown visible-xs menu-responsive pull-right">
-                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-                    Menu
+            <div class="dropdown visible-xs menu-responsive full-width-dropdown">
+                <button class="btn btn-default btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                    Navegación
                     <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu">
@@ -57,66 +57,69 @@
                     <li><a class="purple" href="{{route('login')}}">Login</a></li>
                     <li><a class="purple" href="{{route('register')}}">Registro</a></li>
                 </ul>
+                <hr>
             </div>
         </div>
     </div>
 </div>
 @if(isset($slider))
-<div id="jobforus-slider" class="carousel slide" data-ride="carousel">
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
-        <div class="item active">
-            <img src="/images/slider/01.png" alt="Slider 1">
-            <div class="carousel-caption">
-                <div class="title">
-                    Te necesitan. Te buscan. <b>Te encuentran.</b>
-                </div>
-                <div class="form">
-                    <form class="form-inline">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="¿A quién buscas? Ingresa aquí tu(s) palabra(s) o frase(s) idóneas">
+    <div id="slider-container">
+        <div id="jobforus-slider" class="center-block carousel slide" data-ride="carousel">
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <img src="/images/slider/01.png" alt="Slider 1">
+                    <div class="carousel-caption">
+                        <div class="title">
+                            Te necesitan. Te buscan. <b>Te encuentran.</b>
                         </div>
-                        <button type="submit" class="btn btn-default"><b>Encontrar</b></button>
-                    </form>
+                        <div class="form">
+                            <form class="form-inline">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="¿A quién buscas? Ingresa aquí tu(s) palabra(s) o frase(s) idóneas">
+                                </div>
+                                <button type="submit" class="btn btn-default"><b>Encontrar</b></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="/images/slider/02.png" alt="Slider 2">
+                    <div class="carousel-caption">
+                        <div class="title">
+                            <b>"ESE"</b> trabajo te está buscando.<br>
+                            Ayúdalo a <b>encontrarte</b>.
+                        </div>
+                        <div class="form">
+                            <form class="form-inline">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Cargo o área profesional">
+                                </div>
+                                <button type="submit" class="btn btn-default"><b>Encontrar</b></button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="item">
-            <img src="/images/slider/02.png" alt="Slider 2">
-            <div class="carousel-caption">
-                <div class="title">
-                    <b>"ESE"</b> trabajo te está buscando.<br>
-                    Ayúdalo a <b>encontrarte</b>.
-                </div>
-                <div class="form">
-                    <form class="form-inline">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Cargo o área profesional">
-                        </div>
-                        <button type="submit" class="btn btn-default"><b>Encontrar</b></button>
-                    </form>
-                </div>
-            </div>
+
+            <!-- Controls
+            <a class="left carousel-control" href="#jobforus-slider" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Anterior</span>
+            </a>
+            <a class="right carousel-control" href="#jobforus-slider" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Posterior</span>
+            </a>
+            -->
         </div>
     </div>
-
-    <!-- Controls
-    <a class="left carousel-control" href="#jobforus-slider" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Anterior</span>
-    </a>
-    <a class="right carousel-control" href="#jobforus-slider" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Posterior</span>
-    </a>
-    -->
-</div>
 @endif
 <div class="container">
     @yield('content')
 </div>
 <div id="black-section">
-    <div class="container">
+    <div class="container z-depth-2">
         <div class="row">
             <div class="col-xs-12 text-center">
                 <div class="landing-title">Cómo funciona</div>
@@ -153,8 +156,6 @@
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="/js/app.js"></script>
-<script src="/js/materialize.js"></script>
 </body>
 </html>

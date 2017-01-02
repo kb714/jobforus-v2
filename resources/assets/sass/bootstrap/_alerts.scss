@@ -56,6 +56,10 @@
 //
 // Generate contextual modifier classes for colorizing the alert.
 
+.alert-primary {
+  @include alert-variant($alert-primary-bg, $alert-primary-border, $alert-primary-text);
+}
+
 .alert-success {
   @include alert-variant($alert-success-bg, $alert-success-border, $alert-success-text);
 }

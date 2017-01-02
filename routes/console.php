@@ -16,3 +16,9 @@ use Illuminate\Foundation\Inspiring;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->describe('Display an inspiring quote');
+
+Artisan::command('test', function(){
+    $result = \JobForUs\User::get(['username']);
+    $this->info(json_encode($result));
+})->describe('test command');
+
