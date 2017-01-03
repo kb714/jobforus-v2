@@ -7776,6 +7776,11 @@ body .margin-top-public {
   color: #9c1780;
 }
 
+.header-nav a.purple.active {
+  background-color: #9c1780;
+  color: #fff;
+}
+
 @media (max-width: 992px) {
   .header-nav li a {
     font-size: 10px;

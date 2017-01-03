@@ -25,24 +25,7 @@
         </div>
         <div class="col-lg-9">
             <ul class="header-nav center-pills nav nav-pills hidden-xs">
-                <li class="active"><a href="{{route('home')}}">Inicio</a></li>
-                <li><a href="#">Cómo funciona</a></li>
-                <li><a href="#">Transparentes</a></li>
-                <li><a href="#">Contáctenos</a></li>
-                @if(Auth::check())
-                    <li><a class="purple" href="{{route('dashboard')}}">
-                            Mi cuenta {{Auth::user()->profile->getUserType()}}
-                            <span class="badge">{{Auth::user()->membership->plan->name}}</span></a>
-                    </li>
-                    <li><a class="purple" href="{{route('logout')}}" onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();">Desconectar</a></li>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        {{ csrf_field() }}
-                    </form>
-                @else
-                    <li><a class="purple" href="{{route('login')}}">Login</a></li>
-                    <li><a class="purple" href="{{route('register')}}">Registro</a></li>
-                @endif
+                @include('layouts._partials._menu_elements')
             </ul>
             <div class="dropdown visible-xs menu-responsive full-width-dropdown">
                 <button class="btn btn-default btn-block dropdown-toggle" type="button" data-toggle="dropdown">
@@ -50,12 +33,7 @@
                     <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu">
-                    <li class="active"><a href="{{route('home')}}">Inicio</a></li>
-                    <li><a href="#">Cómo funciona</a></li>
-                    <li><a href="#">Transparentes</a></li>
-                    <li><a href="#">Contáctenos</a></li>
-                    <li><a class="purple" href="{{route('login')}}">Login</a></li>
-                    <li><a class="purple" href="{{route('register')}}">Registro</a></li>
+                    @include('layouts._partials._menu_elements')
                 </ul>
                 <hr>
             </div>

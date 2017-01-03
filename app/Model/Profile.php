@@ -28,7 +28,7 @@ class Profile extends Model
      * Format user Type param
      * @return string
      */
-    public function getUserType()
+    public function getUserTypeParam()
     {
         if($this->attributes['user_type'] == 4){
             return 'Persona';

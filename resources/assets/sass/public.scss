@@ -29,6 +29,10 @@ body{
   }
   a.purple{
     color: $brand-primary;
+    &.active{
+      background-color: $brand-primary;
+      color: #fff;
+    }
   }
 }
 @media (max-width: 992px){

@@ -14,7 +14,6 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::group(['namespace' => 'Dashboard'], function(){
     Route::get('cuenta', 'DashboardController@index')
         ->name('dashboard');
-    Route::get('cuenta/nueva-carta', 'CoverLettersController@create')
-        ->name('dashboard.coverLetters.create');
+    Route::resource('cuenta/cartas', 'CoverLettersController');
 });
 

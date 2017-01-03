@@ -8,12 +8,13 @@
             {{-- breadcrumb --}}
             <ol class="breadcrumb">
                 <li><a href="{{route('dashboard')}}">Panel de control</a></li>
+                <li><a href="{{route('cartas.index')}}">Cartas de presentación</a></li>
                 <li class="active">Nueva carta</li>
             </ol>
             {{-- ./breadcrumb --}}
 
             {{-- Dashboard content --}}
-            <form action="" class="form-horizontal">
+            <form action="{{route('cartas.store')}}" class="form-horizontal" method="POST">
 
                 {{ csrf_field() }}
 
@@ -72,8 +73,8 @@
                         </select>
                         @if ($errors->has('job_type_id'))
                             <span class="help-block">
-                                        <strong>{{ $errors->first('job_type_id') }}</strong>
-                                    </span>
+                                <strong>{{ $errors->first('job_type_id') }}</strong>
+                            </span>
                         @endif
                     </div>
                 </div>
