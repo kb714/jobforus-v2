@@ -24,7 +24,7 @@
   padding: 10px 15px;
   // Place the border on the list items and negative margin up for better styling
   margin-bottom: -1px;
-  background-color: $list-group-bg;
+  background-color: transparent;
   border: 1px solid $list-group-border;
 
   // Round the first and last items
@@ -49,6 +49,7 @@ button.list-group-item {
 
   .list-group-item-heading {
     color: $list-group-link-heading-color;
+    font-weight: 400;
   }
 
   // Hover state
