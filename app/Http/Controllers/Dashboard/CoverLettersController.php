@@ -14,6 +14,11 @@ class CoverLettersController extends Controller
 {
     private $path = 'dashboard.cover_letters.';
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         return view($this->path.__FUNCTION__, $this->data);
@@ -34,5 +39,35 @@ class CoverLettersController extends Controller
 
         return Redirect::to(route('cartas.index'))
             ->with('alert-success', 'Carta creada con éxito, espere su aprobación.');
+    }
+
+    public function show($id)
+    {
+        $data = Auth::user()->coverLetters->find($id);
+        if($data)
+            return $data;
+        abort(404);
+
+    }
+
+    public function edit($id)
+    {
+
+    }
+
+    public function update(Request $request)
+    {
+
+    }
+
+    public function destroy($id)
+    {
+        $data = Auth::user()->coverLetters->find($id);
+        if($data){
+            $data->delete();
+            return Redirect::to(route('cartas.index'))
+                ->with('alert-success', 'Carta eliminada con éxito');
+        }
+        abort(404);
     }
 }

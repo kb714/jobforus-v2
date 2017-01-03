@@ -20,12 +20,17 @@
             {{-- ./alert partial --}}
 
             @if(Auth::user()->coverLetters->count() > 0)
-                <div class="help-block"><b>Mis cartas de presentación</b></div>
-                <table class="table">
+                <div class="help-block">
+                    <b>Mis cartas de presentación</b>
+                    <a href="{{route('cartas.create')}}" class="btn btn-primary pull-right">
+                        Añadir Carta
+                    </a>
+                    <hr>
+                </div>
+                <table class="ui celled compact table">
                     <thead>
                     <tr>
                         <th>Nombre</th>
-                        <th>Descripción</th>
                         <th>Estado</th>
                         <th>Acción</th>
                     </tr>
@@ -33,12 +38,34 @@
                     <tbody>
                     @foreach(Auth::user()->coverLetters as $item)
                         <tr>
-                            <td>{{$item->name}}</td>
-                            <td>{{$item->description}}</td>
+                            <td class="collapsing">{{$item->name}}</td>
                             <td>{{$item->getStatusParam()}}</td>
-                            <td>
-                                <a href="#">Editar</a>
-                                <a href="#">Eliminar</a>
+                            <td class="collapsing">
+                                <a href="#" data-toggle="modal" data-target="#m{{$item->id}}">Eliminar</a>
+                                <div class="modal fade" id="m{{$item->id}}" tabindex="-1">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                                <h4 class="modal-title" id="myModalLabel">¿Seguro desea eliminar esta carta?</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form action="{{route('cartas.destroy', [$item->id])}}"
+                                                      method="POST"
+                                                      class="text-center">
+
+                                                    {{csrf_field()}}
+                                                    {{method_field('DELETE')}}
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                                    <button type="submit" class="btn btn-primary">Eliminar</button>
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                     @endforeach
