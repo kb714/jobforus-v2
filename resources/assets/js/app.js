@@ -7,7 +7,7 @@
 
 require('./bootstrap');
 
-if(document.getElementById('current-type')){
+if(document.getElementById('register')){
     const app = new Vue({
         el: '#register',
         data: {

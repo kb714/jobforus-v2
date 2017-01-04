@@ -1,18 +1,16 @@
 <?php
 
-namespace JobForUs\Http\Controllers\Dashboard;
+namespace JobForUs\Http\Controllers\Dashboard\Account;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use JobForUs\Http\Controllers\Controller;
-use JobForUs\Http\Requests\CoverLettersPostRequest;
-use JobForUs\Model\CoverLetters;
+use JobForUs\Http\Requests\Account\CoverLettersPostRequest;
 use JobForUs\Model\JobType;
 
 class CoverLettersController extends Controller
 {
-    private $path = 'dashboard.cover_letters.';
+    private $path = 'dashboard.account.cover_letters.';
 
     public function __construct()
     {
@@ -33,11 +31,11 @@ class CoverLettersController extends Controller
         return view($this->path.__FUNCTION__, $this->data);
     }
 
-    public function store(CoverLettersPostRequest $data)
+    public function store(CoverLettersPostRequest $request)
     {
-        Auth::user()->coverLetters()->create($data->all());
+        Auth::user()->coverLetters()->create($request->all());
 
-        return Redirect::to(route('cartas.index'))
+        return Redirect::to(route('letters.index'))
             ->with('alert-success', 'Carta creada con éxito, espere su aprobación.');
     }
 
@@ -50,22 +48,12 @@ class CoverLettersController extends Controller
 
     }
 
-    public function edit($id)
-    {
-
-    }
-
-    public function update(Request $request)
-    {
-
-    }
-
     public function destroy($id)
     {
         $data = Auth::user()->coverLetters->find($id);
         if($data){
             $data->delete();
-            return Redirect::to(route('cartas.index'))
+            return Redirect::to(route('letters.index'))
                 ->with('alert-success', 'Carta eliminada con éxito');
         }
         abort(404);

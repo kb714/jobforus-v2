@@ -22,7 +22,7 @@
             @if(Auth::user()->coverLetters->count() > 0)
                 <div class="help-block">
                     <b>Mis cartas de presentación</b>
-                    <a href="{{route('cartas.create')}}" class="btn btn-primary pull-right">
+                    <a href="{{route('letters.create')}}" class="btn btn-primary pull-right">
                         Añadir Carta
                     </a>
                     <hr>
@@ -52,7 +52,7 @@
                                                 <h4 class="modal-title" id="myModalLabel">¿Seguro desea eliminar esta carta?</h4>
                                             </div>
                                             <div class="modal-body">
-                                                <form action="{{route('cartas.destroy', [$item->id])}}"
+                                                <form action="{{route('letters.destroy', [$item->id])}}"
                                                       method="POST"
                                                       class="text-center">
 
@@ -74,7 +74,7 @@
             @else
                 <div class="text-center">
                     <div class="help-block">Usted no tiene ninguna carta de presentación creada</div>
-                    <a href="{{route('cartas.create')}}" class="btn btn-primary">
+                    <a href="{{route('letters.create')}}" class="btn btn-primary">
                         Crear mi primer carta de presentación
                     </a>
                 </div>

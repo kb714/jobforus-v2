@@ -8,13 +8,13 @@
             {{-- breadcrumb --}}
             <ol class="breadcrumb">
                 <li><a href="{{route('dashboard')}}">Panel de control</a></li>
-                <li><a href="{{route('cartas.index')}}">Cartas de presentación</a></li>
+                <li><a href="{{route('letters.index')}}">Cartas de presentación</a></li>
                 <li class="active">Nueva carta</li>
             </ol>
             {{-- ./breadcrumb --}}
 
             {{-- Dashboard content --}}
-            <form action="{{route('cartas.store')}}" class="form-horizontal" method="POST">
+            <form action="{{route('letters.store')}}" class="form-horizontal" method="POST">
 
                 {{ csrf_field() }}
 

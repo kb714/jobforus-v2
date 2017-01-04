@@ -17,9 +17,9 @@ class CoverLetters extends Model
 
     public function getStatusParam()
     {
-        if($this->attributes['status'] == 0)
-            return 'No aprobado';
-        else
+        if($this->attributes['status'] == true)
             return 'Aprobado';
+        else
+            return 'No aprobado';
     }
 }
