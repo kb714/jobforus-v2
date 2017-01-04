@@ -9,11 +9,11 @@
             <h4 class="list-group-item-heading">Información Personal</h4>
             <p class="list-group-item-text">Modifique su información de usuario</p>
         </a>
-        <a href="#" class="list-group-item">
+        <a href="{{route('additional-information.index')}}" class="list-group-item">
             <h4 class="list-group-item-heading">Información adicional</h4>
             <p class="list-group-item-text">Nivel de estudio, experiencia, entre otras opciones</p>
         </a>
-        <a href="#" class="list-group-item">
+        <a href="{{route('security.index')}}" class="list-group-item">
             <h4 class="list-group-item-heading">Seguridad</h4>
             <p class="list-group-item-text">Cambios de contraseña, correo y seguridad general</p>
         </a>

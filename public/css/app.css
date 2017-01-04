@@ -4304,27 +4304,27 @@ select[multiple].input-lg,
 .has-success.checkbox label,
 .has-success.radio-inline label,
 .has-success.checkbox-inline label {
-  color: #ffffff;
+  color: #43A047;
 }
 
 .has-success .form-control {
-  border-color: #ffffff;
+  border-color: #43A047;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 
 .has-success .form-control:focus {
-  border-color: #e6e6e6;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px white;
+  border-color: #347c37;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #7fca83;
 }
 
 .has-success .input-group-addon {
-  color: #ffffff;
-  border-color: #ffffff;
+  color: #43A047;
+  border-color: #43A047;
   background-color: #43A047;
 }
 
 .has-success .form-control-feedback {
-  color: #ffffff;
+  color: #43A047;
 }
 
 .has-warning .help-block,
@@ -4337,27 +4337,27 @@ select[multiple].input-lg,
 .has-warning.checkbox label,
 .has-warning.radio-inline label,
 .has-warning.checkbox-inline label {
-  color: #212121;
+  color: #FFEB3B;
 }
 
 .has-warning .form-control {
-  border-color: #212121;
+  border-color: #FFEB3B;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 
 .has-warning .form-control:focus {
-  border-color: #080808;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #545454;
+  border-color: #ffe608;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #fff5a1;
 }
 
 .has-warning .input-group-addon {
-  color: #212121;
-  border-color: #212121;
+  color: #FFEB3B;
+  border-color: #FFEB3B;
   background-color: #FFEB3B;
 }
 
 .has-warning .form-control-feedback {
-  color: #212121;
+  color: #FFEB3B;
 }
 
 .has-error .help-block,
@@ -4370,27 +4370,27 @@ select[multiple].input-lg,
 .has-error.checkbox label,
 .has-error.radio-inline label,
 .has-error.checkbox-inline label {
-  color: #ffffff;
+  color: #E53935;
 }
 
 .has-error .form-control {
-  border-color: #ffffff;
+  border-color: #E53935;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 
 .has-error .form-control:focus {
-  border-color: #e6e6e6;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px white;
+  border-color: #cd1e1a;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #f1928f;
 }
 
 .has-error .input-group-addon {
-  color: #ffffff;
-  border-color: #ffffff;
+  color: #E53935;
+  border-color: #E53935;
   background-color: #E53935;
 }
 
 .has-error .form-control-feedback {
-  color: #ffffff;
+  color: #E53935;
 }
 
 .has-feedback label ~ .form-control-feedback {

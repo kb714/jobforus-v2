@@ -15,6 +15,11 @@ class PersonalInformationController extends Controller
 {
     private $path = 'dashboard.account.personal_information.';
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $this->data = [

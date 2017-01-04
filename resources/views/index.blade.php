@@ -9,65 +9,38 @@
     </div>
     <div class="row">
         <div class="col-xs-12">
-            <table class="table landing-table table-striped">
-                <tbody>
-                <tr>
-                    <td class="hidden-xs"><img src="/images/image-freelance.png" alt="Freelance"></td>
-                    <td>
-                        <span class="purple">Diseño páginas web en wordpress</span> <span class="author">por Jesica Pino</span>
-                        <hr class="visible-xs">
-                        <div class="purple-location visible-xs"></div>
-                        <div class="purple-post">Posteado 21 de febrero 2016</div>
-                    </td>
-                    <td class="hidden-xs"><div class="calendar"><i class="glyphicon glyphicon-calendar"></i></div></td>
-                    <td class="hidden-xs"><div class="purple-location">Frelance, Santiago</div><div class="purple-post">Posteado 21 de febrero 2016</div></td>
-                </tr>
-                <tr>
-                    <td class="hidden-xs"><img src="/images/image-freelance.png" alt="Freelance"></td>
-                    <td>
-                        <span class="purple">Diseño páginas web en wordpress</span> <span class="author">por Jesica Pino</span>
-                        <hr class="visible-xs">
-                        <div class="purple-location visible-xs"></div>
-                        <div class="purple-post">Posteado 21 de febrero 2016</div>
-                    </td>
-                    <td class="hidden-xs"><div class="calendar"><i class="glyphicon glyphicon-calendar"></i></div></td>
-                    <td class="hidden-xs"><div class="purple-location">Frelance, Santiago</div><div class="purple-post">Posteado 21 de febrero 2016</div></td>
-                </tr>
-                <tr>
-                    <td class="hidden-xs"><img src="/images/image-freelance.png" alt="Freelance"></td>
-                    <td>
-                        <span class="purple">Diseño páginas web en wordpress</span> <span class="author">por Jesica Pino</span>
-                        <hr class="visible-xs">
-                        <div class="purple-location visible-xs"></div>
-                        <div class="purple-post">Posteado 21 de febrero 2016</div>
-                    </td>
-                    <td class="hidden-xs"><div class="calendar"><i class="glyphicon glyphicon-calendar"></i></div></td>
-                    <td class="hidden-xs"><div class="purple-location">Frelance, Santiago</div><div class="purple-post">Posteado 21 de febrero 2016</div></td>
-                </tr>
-                <tr>
-                    <td class="hidden-xs"><img src="/images/image-freelance.png" alt="Freelance"></td>
-                    <td>
-                        <span class="purple">Diseño páginas web en wordpress</span> <span class="author">por Jesica Pino</span>
-                        <hr class="visible-xs">
-                        <div class="purple-location visible-xs"></div>
-                        <div class="purple-post">Posteado 21 de febrero 2016</div>
-                    </td>
-                    <td class="hidden-xs"><div class="calendar"><i class="glyphicon glyphicon-calendar"></i></div></td>
-                    <td class="hidden-xs"><div class="purple-location">Frelance, Santiago</div><div class="purple-post">Posteado 21 de febrero 2016</div></td>
-                </tr>
-                <tr>
-                    <td class="hidden-xs"><img src="/images/image-freelance.png" alt="Freelance"></td>
-                    <td>
-                        <span class="purple">Diseño páginas web en wordpress</span> <span class="author">por Jesica Pino</span>
-                        <hr class="visible-xs">
-                        <div class="purple-location visible-xs"></div>
-                        <div class="purple-post">Posteado 21 de febrero 2016</div>
-                    </td>
-                    <td class="hidden-xs"><div class="calendar"><i class="glyphicon glyphicon-calendar"></i></div></td>
-                    <td class="hidden-xs"><div class="purple-location">Frelance, Santiago</div><div class="purple-post">Posteado 21 de febrero 2016</div></td>
-                </tr>
-                </tbody>
-            </table>
+            @if($cover_letters->count() > 0)
+                <table class="table landing-table table-striped">
+                    <tbody>
+                    @foreach($cover_letters as $item)
+                        <tr>
+                            <td class="hidden-xs"><img src="/images/image-freelance.png" alt="Freelance"></td>
+                            <td>
+                                <span class="purple">{{$item->name}}</span>
+                                <span class="author">por {{$item->user->profile->name}} {{$item->user->profile->last_name}}</span>
+                                <hr class="visible-xs">
+                                <div class="purple-location visible-xs"></div>
+                                <div class="purple-post">Posteado {{$item->getCreatedAtParam()}}</div>
+                            </td>
+                            <td class="hidden-xs">
+                                <div class="calendar"><i class="glyphicon glyphicon-calendar"></i></div>
+                            </td>
+                            <td class="hidden-xs">
+                                <div class="purple-location"></div>
+                                <div class="purple-post">{{$item->getCreatedAtParam()}}</div>
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            @else
+                <hr>
+                <div class="alert alert-primary text-center">
+                    <h5>Actualmente no existe ninguna carta aprobada ingresada al sistema</h5>
+                    <hr>
+                    <b>JobForUs</b>
+                </div>
+            @endif
         </div>
     </div>
 @endsection

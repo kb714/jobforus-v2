@@ -2,6 +2,7 @@
 
 namespace JobForUs\Model;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class CoverLetters extends Model
@@ -21,5 +22,10 @@ class CoverLetters extends Model
             return 'Aprobado';
         else
             return 'No aprobado';
+    }
+
+    public function getCreatedAtParam()
+    {
+        return Carbon::createFromFormat('Y-m-d H:i:s',$this->attributes['created_at'])->format('Y/m/d H:i:s');
     }
 }

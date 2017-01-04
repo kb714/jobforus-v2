@@ -36,6 +36,24 @@ Route::group(['namespace' => 'Dashboard'], function(){
                 ]
             ]
         );
+        Route::resource('informacion-adicional', 'AdditionalInformationController',
+            [
+                'only' => ['index', 'store'],
+                'names' => [
+                    'index' => 'additional-information.index',
+                    'store' => 'additional-information.store'
+                ]
+            ]
+        );
+        Route::resource('seguridad', 'SecurityController',
+            [
+                'only' => ['index', 'store'],
+                'names' => [
+                    'index' => 'security.index',
+                    'store' => 'security.store'
+                ]
+            ]
+        );
     });
 });
 

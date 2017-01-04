@@ -25,17 +25,15 @@ class PersonalInformationPostRequest extends FormRequest
     {
         return [
             'name'          => 'required|min:3|max:255',
-            'identifier'    => 'required|max:30',//rut
-            // PERSON VALIDATION
+            'identifier'    => 'required|max:30',
             'last_name'     => 'required|min:3|max:255',
             'job_type_id'   => 'required|exists:job_types,id',
             'location_id'   => 'required|exists:locations,id',
             'region_id'     => 'required_if:location_id,1|exists:regions,id',
-            // contact information
             'phone'         => 'min:3|max:255',
             'facebook'      => 'min:3|max:255',
             'twitter'       => 'min:3|max:255',
-            'other'         => 'min:3|max:255',
+            'other'         => 'min:3|max:255'
         ];
     }
 }

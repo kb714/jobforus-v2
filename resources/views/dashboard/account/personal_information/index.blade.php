@@ -11,7 +11,7 @@
             {{-- breadcrumb --}}
             <ol class="breadcrumb">
                 <li><a href="{{route('dashboard')}}">Panel de control</a></li>
-                <li class="active">Cartas de presentación</li>
+                <li class="active">Información personal</li>
             </ol>
             {{-- ./breadcrumb --}}
 

@@ -130,7 +130,8 @@ return [
         'company_contact_position'  => 'cargo persona de contacto',
         'company_contact_email'     => 'email persona de contacto',
         'company_contact_phone'     => 'teléfono persona de contacto',
-        '6'                         => 'empresa'
+        'password_confirmation'     => 'confirme contraseña',
+        'current_password'          => 'contraseña'
     ],
 
 ];
