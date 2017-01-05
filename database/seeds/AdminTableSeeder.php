@@ -12,10 +12,10 @@ class AdminTableSeeder extends Seeder
     public function run()
     {
         DB::table('admins')->insert([
-            'name' => 'Alexis Aguirre',
-            'username' => 'acvp',
-            'email'  => 'alexis@acvp.cl',
-            'password' => \Illuminate\Support\Facades\Hash::make('123123')
+            'name'      => 'Alexis Aguirre',
+            'username'  => 'acvp',
+            'email'     => 'alexis@acvp.cl',
+            'password'  => \Illuminate\Support\Facades\Hash::make('123123')
         ]);
     }
 }

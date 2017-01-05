@@ -32,7 +32,19 @@
                                 <td>{{$item->name}}</td>
                                 <td class="collapsing">{{$item->getStatusParam()}}</td>
                                 <td class="collapsing">
-                                    <a href="#" class="btn btn-primary">Cambiar estado</a>
+                                    <a href="#" class="btn btn-primary"
+                                       onclick="event.preventDefault();
+                                       document.getElementById('change-status-{{$item->id}}').submit();">
+                                        Cambiar estado
+                                    </a>
+                                    <form id="change-status-{{$item->id}}"
+                                          action="{{ route('job-types.update', [$item->id]) }}"
+                                          method="POST"
+                                          style="display: none;">
+                                        {{ csrf_field() }}
+                                        {{ method_field('PUT') }}
+                                        <input type="hidden" name="status" value="{{$item->status ? '0' : '1'}}">
+                                    </form>
                                     <a href="#" class="btn btn-warning">Editar</a>
                                 </td>
                             </tr>

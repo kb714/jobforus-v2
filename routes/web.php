@@ -17,40 +17,25 @@ Route::group(['namespace' => 'Dashboard'], function(){
         Route::resource('cartas', 'CoverLettersController',
             [
                 'except' => ['edit', 'update'],
-                'names' =>[
-                    'store'     => 'letters.store',
-                    'index'     => 'letters.index',
-                    'create'    => 'letters.create',
-                    'destroy'   => 'letters.destroy',
-                    'show'      => 'letters.show'
-                ]
+                'names' => 'letters'
             ]
         );
         Route::resource('informacion-personal', 'PersonalInformationController',
             [
                 'only' => ['index', 'store'],
-                'names' => [
-                    'index' => 'personal-information.index',
-                    'store' => 'personal-information.store'
-                ]
+                'names' => 'personal-information'
             ]
         );
         Route::resource('informacion-adicional', 'AdditionalInformationController',
             [
                 'only' => ['index', 'store'],
-                'names' => [
-                    'index' => 'additional-information.index',
-                    'store' => 'additional-information.store'
-                ]
+                'names' => 'additional-information'
             ]
         );
         Route::resource('seguridad', 'SecurityController',
             [
                 'only' => ['index', 'store'],
-                'names' => [
-                    'index' => 'security.index',
-                    'store' => 'security.store'
-                ]
+                'names' => 'security'
             ]
         );
     });
@@ -72,7 +57,9 @@ Route::group(['namespace' => 'Admin'], function(){
     Route::get('admin', 'AdminController@index')->name('admin.index');
     Route::group(['prefix' => 'admin'], function(){
 //        job types route
-        Route::get('tipos-de-trabajo', 'JobTypesController@index')->name('job-types.index');
+        Route::resource('tipos-de-trabajo', 'JobTypesController', [
+            'names' => 'job-types'
+        ]);
 //        users route
         Route::get('usuarios', 'UsersController@index')->name('users.index');
     });
