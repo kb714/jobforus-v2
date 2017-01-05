@@ -7,7 +7,7 @@
         <div class="col-md-8">
             {{-- breadcrumb --}}
             <ol class="breadcrumb">
-                <li><a href="{{route('dashboard')}}">Panel de control</a></li>
+                <li><a href="{{route('dashboard.index')}}">Panel de control</a></li>
                 <li><a href="{{route('letters.index')}}">Cartas de presentación</a></li>
                 <li class="active">Nueva carta</li>
             </ol>

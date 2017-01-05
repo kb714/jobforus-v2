@@ -10,7 +10,7 @@
 
             {{-- breadcrumb --}}
             <ol class="breadcrumb">
-                <li><a href="{{route('dashboard')}}">Panel de control</a></li>
+                <li><a href="{{route('dashboard.index')}}">Panel de control</a></li>
                 <li class="active">Cartas de presentación</li>
             </ol>
             {{-- ./breadcrumb --}}

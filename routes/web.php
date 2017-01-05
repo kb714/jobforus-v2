@@ -9,11 +9,10 @@ Auth::routes();
  */
 Route::get('/', 'HomeController@index')->name('home');
 /**
- * Dashboard Routes
+ * Dashboard Namespace
  */
 Route::group(['namespace' => 'Dashboard'], function(){
-    Route::get('cuenta', 'DashboardController@index')
-        ->name('dashboard');
+    Route::get('cuenta', 'DashboardController@index')->name('dashboard.index');
     Route::group(['namespace' => 'Account', 'prefix' => 'cuenta'], function(){
         Route::resource('cartas', 'CoverLettersController',
             [
@@ -54,6 +53,28 @@ Route::group(['namespace' => 'Dashboard'], function(){
                 ]
             ]
         );
+    });
+});
+
+/**
+ * Administrator Namespace
+ */
+Route::group(['namespace' => 'AuthAdmin', 'prefix' => 'admin'], function(){
+    Route::get('login','LoginController@showLoginForm')->name('admin.login');
+    Route::post('login','LoginController@login');
+    Route::post('logout','LoginController@logout')->name('admin.logout');
+
+// Registration Routes...
+    Route::get('register', 'LoginController@showRegistrationForm');
+    Route::post('register', 'LoginController@register');
+});
+Route::group(['namespace' => 'Admin'], function(){
+    Route::get('admin', 'AdminController@index')->name('admin.index');
+    Route::group(['prefix' => 'admin'], function(){
+//        job types route
+        Route::get('tipos-de-trabajo', 'JobTypesController@index')->name('job-types.index');
+//        users route
+        Route::get('usuarios', 'UsersController@index')->name('users.index');
     });
 });
 

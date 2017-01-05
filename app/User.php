@@ -4,7 +4,6 @@ namespace JobForUs;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Support\Facades\Auth;
 use JobForUs\Model\Membership;
 use JobForUs\Model\Profile;
 
@@ -71,5 +70,12 @@ class User extends Authenticatable
             $user->membership()->save(new Membership(['plan_id' => 2]));
 
         return $user;
+    }
+
+    public function getUserTypeParam()
+    {
+        if($this->attributes['user_type'] == 4)
+            return 'Persona';
+        return 'Empresa';
     }
 }

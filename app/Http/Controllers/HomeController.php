@@ -2,7 +2,6 @@
 
 namespace JobForUs\Http\Controllers;
 
-use Illuminate\Http\Request;
 use JobForUs\Model\CoverLetters;
 
 class HomeController extends Controller

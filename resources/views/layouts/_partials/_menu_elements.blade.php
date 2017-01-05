@@ -3,7 +3,7 @@
 <li><a href="#">Transparentes</a></li>
 <li><a href="#">Contáctenos</a></li>
 @if(Auth::check())
-    <li><a class="purple" href="{{route('dashboard')}}">
+    <li><a class="purple" href="{{route('dashboard.index')}}">
             Mi cuenta {{Auth::user()->profile->getUserTypeParam()}}
             <span class="badge">{{Auth::user()->membership->plan->name}}</span></a>
     </li>

@@ -45,6 +45,10 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admin'
+        ]
     ],
 
     /*
@@ -68,6 +72,10 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => JobForUs\User::class,
+        ],
+        'admin' => [
+            'driver' => 'eloquent',
+            'model' => JobForUs\Admin::class
         ],
 
         // 'users' => [
@@ -97,6 +105,12 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
         ],
+        'admins' => [
+            'provider' => 'admin',
+            'table' => 'password_resets',
+            'expire' => 60,
+
+        ]
     ],
 
 ];
