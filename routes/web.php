@@ -61,7 +61,9 @@ Route::group(['namespace' => 'Admin'], function(){
             'names' => 'job-types'
         ]);
 //        users route
-        Route::get('usuarios', 'UsersController@index')->name('users.index');
+        Route::resource('usuarios', 'UsersController', [
+            'names' => 'users'
+        ]);
     });
 });
 

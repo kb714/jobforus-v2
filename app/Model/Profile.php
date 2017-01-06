@@ -21,9 +21,19 @@ class Profile extends Model
      * JobTye relation
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function job_type()
+    public function jobType()
     {
-        return $this->hasOne('JobForUs\Model\JobType');
+        return $this->hasOne('JobForUs\Model\JobType', 'id', 'job_type_id');
+    }
+
+    public function location()
+    {
+        return $this->hasOne('JobForUs\Model\Location', 'id', 'location_id');
+    }
+
+    public function region()
+    {
+        return $this->hasOne('JobForUs\Model\Region', 'id', 'region_id');
     }
 
     /**

@@ -43,7 +43,9 @@
                                           style="display: none;">
                                         {{ csrf_field() }}
                                         {{ method_field('PUT') }}
-                                        <input type="hidden" name="status" value="{{$item->status ? '0' : '1'}}">
+                                        <input type="hidden"
+                                               name="status"
+                                               value="{{$item->status ? (int)FALSE : (int)TRUE}}">
                                     </form>
                                     <a href="#" class="btn btn-warning">Editar</a>
                                 </td>

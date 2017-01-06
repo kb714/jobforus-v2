@@ -18,9 +18,34 @@ class UsersController extends Controller
     public function index()
     {
         $this->data = [
-            'users' => User::get()
+            'data' => User::get()
         ];
 
         return view($this->path.__FUNCTION__, $this->data);
+    }
+
+    public function show($id)
+    {
+        $this->data = [
+            'data' => User::find($id)
+        ];
+
+        return view($this->path.__FUNCTION__, $this->data);
+    }
+
+    public function edit($id)
+    {
+        return User::find($id);
+    }
+
+    public function update($id)
+    {
+
+    }
+
+    public function destroy($id)
+    {
+        return redirect(route('users.index'))
+            ->with('alert-success', 'Usuario eliminado con éxito');
     }
 }
