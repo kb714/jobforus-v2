@@ -36,8 +36,8 @@
                                     <td class="collapsing">{{$item->membership->plan->name}}</td>
                                     <td class="collapsing">{{$item->profile->getUserTypeParam()}}</td>
                                     <td class="collapsing">
-                                        <a href="{{route('users.show', [$item->id])}}" class="btn btn-primary">Ver</a>
-                                        <a href="{{route('users.edit', [$item->id])}}" class="btn btn-warning">Editar</a>
+                                        <a href="{{route('users.show', $item->id)}}" class="btn btn-primary">Ver</a>
+                                        <a href="{{route('users.edit', $item->id)}}" class="btn btn-warning">Editar</a>
                                         <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#m{{$item->id}}">Eliminar</a>
                                         {{-- Modal --}}
                                         <div class="modal fade" id="m{{$item->id}}" tabindex="-1">

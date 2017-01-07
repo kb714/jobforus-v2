@@ -254,7 +254,7 @@
                                             required>
                                         @foreach($jobs_types as $item)
                                             <option value="{{$item->id}}"
-                                                    {{old('location_id') == $item->id ? 'selected' : ''}}>{{$item->name}}
+                                                    {{old('job_type_id') == $item->id ? 'selected' : ''}}>{{$item->name}}
                                             </option>
                                         @endforeach
                                     </select>

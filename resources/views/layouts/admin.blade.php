@@ -21,6 +21,9 @@
     <!-- Animation Css -->
     <link href="/admin-assets/plugins/animate-css/animate.css" rel="stylesheet" />
 
+    <!-- Bootstrap Select Css -->
+    <link href="/admin-assets/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+
     <!-- Custom Css -->
     <link href="/admin-assets/css/style.css" rel="stylesheet">
 
@@ -77,7 +80,7 @@
         <!-- User Info -->
         <div class="user-info">
             <div class="image">
-                <img src="../../images/user.png" width="48" height="48" alt="User" />
+                <img src="/images/user.png" width="48" height="48" alt="User" />
             </div>
             <div class="info-container">
                 <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -154,6 +157,8 @@
 
 <!-- Bootstrap Core Js -->
 <script src="/admin-assets/plugins/bootstrap/js/bootstrap.js"></script>
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
 
 <!-- Select Plugin Js -->
 <script src="/admin-assets/plugins/bootstrap-select/js/bootstrap-select.js"></script>

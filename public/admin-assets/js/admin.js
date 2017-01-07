@@ -444,3 +444,13 @@ $(function () {
 
     setTimeout(function () { $('.page-loader-wrapper').fadeOut(); }, 50);
 });
+
+if(document.getElementById('register')){
+    const app = new Vue({
+        el: '#register',
+        data: {
+            user_type: document.getElementById('current-type') ? document.getElementById('current-type').value : null,
+            location: document.getElementById('current-location') ? document.getElementById('current-location').value : null
+        }
+    });
+}
