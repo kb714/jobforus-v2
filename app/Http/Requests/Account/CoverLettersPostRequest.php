@@ -25,7 +25,7 @@ class CoverLettersPostRequest extends FormRequest
     {
         return [
             'name' => 'required|min:5|max:255',
-            'description' => 'required|min:5|max:255',
+            'description' => 'required|min:5|max:20000',
             'job_type_id' => 'required|exists:job_types,id'
         ];
     }

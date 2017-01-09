@@ -2,23 +2,14 @@
 
 namespace JobForUs\Http\Controllers;
 
+use Illuminate\Support\Facades\Mail;
 use JobForUs\Http\Requests\ContactPostRequest;
+use JobForUs\Mail\TestMail;
 use JobForUs\Model\CoverLetters;
 use JobForUs\Model\Page;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     */
-    public function __construct()
-    {
-        $this->data = [
-            'slider' => true
-        ];
-    }
-
     /**
      * Show the application dashboard.
      *
@@ -27,6 +18,7 @@ class HomeController extends Controller
     public function index()
     {
         $this->data = [
+            'slider'        => true,
             'cover_letters' => CoverLetters::where('status', true)
                 ->orderBy('created_at', 'DESC')
                 ->get()
@@ -65,6 +57,8 @@ class HomeController extends Controller
 
     public function contact(ContactPostRequest $request)
     {
+        Mail::to($request->email)->send(new TestMail());
+
         return redirect(route('home.page', 'contacto'))
             ->with('alert-success', 'Mensaje enviado con éxito, pronto nos pondremos en contacto con usted');
     }

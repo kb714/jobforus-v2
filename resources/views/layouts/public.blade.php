@@ -111,19 +111,22 @@
             <div class="col-xs-12 col-md-4">
                 <div class="footer-box">
                     <img src="/images/1.png" alt="Uno">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p>La persona perfecta para el trabajo ideal. Un trabajo perfecto para la persona ideal. Es Job for Us.</p>
                 </div>
             </div>
             <div class="col-xs-12 col-md-4 center-box">
                 <div class="footer-box">
                     <img src="/images/2.png" alt="Dos">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p>Escríbelo, cuéntalo, detállalo… ¿qué haces, cómo lo haces, qué has hecho, qué quieres, qué puedes
+                        hacer, de qué eres capaz? Regístrate (como PERSONA) y redacta hasta tres cartas de presentación, gratis!!!!!</p>
                 </div>
             </div>
             <div class="col-xs-12 col-md-4">
                 <div class="footer-box">
                     <img src="/images/3.png" alt="Tres">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p>Ingresa las palabras mágicas en el buscador para encontrar a la persona indicada, lee las cartas
+                        de presentación y contacta al usuario que te ha llamado la atención. Para contactar al usuario
+                        debes estar registrado (como EMPRESAS) cancelar la cuota ($20.000) para acceder por 30 días y…..MATCH!!!!</p>
                 </div>
             </div>
         </div>
