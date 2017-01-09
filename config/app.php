@@ -177,7 +177,8 @@ return [
         // JobForUs\Providers\BroadcastServiceProvider::class,
         JobForUs\Providers\EventServiceProvider::class,
         JobForUs\Providers\RouteServiceProvider::class,
-        Laracasts\Utilities\JavaScript\JavaScriptServiceProvider::class
+        Laracasts\Utilities\JavaScript\JavaScriptServiceProvider::class,
+        Petecoop\LaravelInky\InkyServiceProvider::class
 
     ],
 

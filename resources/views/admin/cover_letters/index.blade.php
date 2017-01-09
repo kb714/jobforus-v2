@@ -37,7 +37,7 @@
                                 <td class="collapsing">{{$item->getStatusParam()}}</td>
                                 <td class="collapsing">{{$item->created_at}}</td>
                                 <td class="collapsing">
-                                    <a href="{{route('cover-letters.edit', $item->id)}}" class="btn btn-warning">Editar</a>
+                                    <a href="{{route('cover-letters.edit', $item->id)}}" class="btn btn-primary">Ver</a>
                                 </td>
                             </tr>
                         @endforeach
