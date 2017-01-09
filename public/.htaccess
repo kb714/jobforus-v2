@@ -5,6 +5,10 @@
 
     RewriteEngine On
 
+    RewriteEngine on
+    RewriteCond %{HTTP_HOST} ^jobforus.cl [NC]
+    RewriteRule ^(.*)$ https://www.jobforus.cl/$1 [L,R=301,NC]
+
     # Redirect Trailing Slashes If Not A Folder...
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)/$ /$1 [L,R=301]

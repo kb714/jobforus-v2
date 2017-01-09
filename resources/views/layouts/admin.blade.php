@@ -126,6 +126,12 @@
                         <span>Usuarios</span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{route('cover-letters.index')}}">
+                        <i class="material-icons">mail</i>
+                        <span>Cartas de presentación</span>
+                    </a>
+                </li>
                 <li class="header">Contenido</li>
             </ul>
         </div>
@@ -166,6 +172,9 @@
 <!-- Slimscroll Plugin Js -->
 <script src="/admin-assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
 
+<!-- Ckeditor -->
+<script src="/admin-assets/plugins/ckeditor/ckeditor.js"></script>
+
 <!-- Waves Effect Plugin Js -->
 <script src="/admin-assets/plugins/node-waves/waves.js"></script>
 
@@ -177,6 +186,7 @@
 
 <!-- Custom Js -->
 <script src="/admin-assets/js/admin.js"></script>
+<script src="/admin-assets/js/pages/forms/editors.js"></script>
 <script src="/admin-assets/js/pages/widgets/infobox/infobox-2.js"></script>
 
 <!-- Demo Js -->

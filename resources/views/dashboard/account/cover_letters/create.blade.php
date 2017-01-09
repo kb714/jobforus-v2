@@ -45,7 +45,7 @@
 
                     <div class="col-lg-6">
                         <textarea name="description"
-                                  id="description"
+                                  id="ckeditor"
                                   class="form-control">{{old('description') ? old('description') : ''}}</textarea>
 
                         @if ($errors->has('description'))

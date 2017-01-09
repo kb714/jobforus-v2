@@ -14,9 +14,13 @@
                     <tbody>
                     @foreach($cover_letters as $item)
                         <tr>
-                            <td class="hidden-xs"><img src="/images/image-freelance.png" alt="Freelance"></td>
+                            <td class="hidden-xs">
+                                <div class="job-type-box text-center">
+                                    <span class="label label-job z-depth-1">{{$item->jobType->name}}</span>
+                                </div>
+                            </td>
                             <td>
-                                <span class="purple">{{$item->name}}</span>
+                                <a href="{{route('home.show', $item->id)}}" class="purple">{{$item->name}}</a>
                                 <span class="author">por {{$item->user->profile->name}} {{$item->user->profile->last_name}}</span>
                                 <hr class="visible-xs">
                                 <div class="purple-location visible-xs"></div>

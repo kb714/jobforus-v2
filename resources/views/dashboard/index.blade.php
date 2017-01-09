@@ -17,6 +17,10 @@
                 <div class="alert alert-primary text-center">
                     <b> Su plan actual es</b>: Cuenta {{Auth::user()->membership->plan->name}}
                 </div>
+            @else
+                <div class="alert alert-primary text-center">
+                    Perfil de empresa en implementación
+                </div>
             @endif
 
         </div>

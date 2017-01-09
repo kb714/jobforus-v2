@@ -8768,6 +8768,8 @@ body .margin-top-public {
   border: 1px solid #eeeeee;
   border-radius: 5px;
   margin-top: 30px;
+  background-color: #F5F5F5;
+  width: 100%;
 }
 
 .landing-table > tbody > tr > td {
@@ -8899,6 +8901,17 @@ body .margin-top-public {
 
 .z-depth-5 {
   box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.3);
+}
+
+.job-type-box {
+  background-color: #fff;
+  padding: 20px 0;
+  border-radius: 5px;
+}
+
+.job-type-box .label-job {
+  background-color: #9c1780;
+  color: #fff;
 }
 
 /*# sourceMappingURL=app.css.map */

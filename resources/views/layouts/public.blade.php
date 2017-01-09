@@ -6,16 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>JobForUs</title>
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="{{asset('css/app.css')}}?q={{rand(5,5000)}}">
 </head>
 <body>
 <div id="app" class="container margin-top-public">
     <div class="row">
         <div class="col-xs-12">
             <div class="social-networks text-right">
-                <a href="#"><img src="/images/facebook.png" alt="Facebook Page"></a>
-                <a href="#"><img src="/images/twitter.png" alt="Twitter Page"></a>
+                <a href="https://www.facebook.com/jobforus.cl/" target="_blank">
+                    <img src="{{asset('images/facebook.png')}}" alt="Facebook Page">
+                </a>
+                <a href="https://twitter.com/Job_For_Us?cn=YWRkcmVzc19ib29rX2NvbnRhY3RfYWRkZWQ%3D&refsrc=email" target="_blank">
+                    <img src="{{asset('images/twitter.png')}}" alt="Twitter Page">
+                </a>
             </div>
         </div>
     </div>
@@ -129,10 +132,14 @@
 <div id="purple-section">
     <div class="container">
         <div class="col-xs-6"><b>JobForUs</b> © <b>2016 | TODOS LOS DERECHOS RESEVADOS</b></div>
-        <div class="col-xs-6 text-right">contacto@jobforus.cl</div>
+        <div class="col-xs-6 text-right">info@jobforus.cl</div>
     </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<!-- Ckeditor -->
+<script src="/admin-assets/plugins/ckeditor/ckeditor.js"></script>
+<script src="/admin-assets/js/pages/forms/editors.js"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script src="/js/app.js"></script>
 </body>

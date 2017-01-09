@@ -21,6 +21,7 @@ class CreateCoverLettersTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->boolean('status')->default(false);
+            $this->text('reason')->nullable();
 
             $table->timestamps();
         });

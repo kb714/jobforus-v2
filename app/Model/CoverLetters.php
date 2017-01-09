@@ -8,12 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class CoverLetters extends Model
 {
     protected $fillable = [
-      'job_type_id', 'name', 'description'
+      'job_type_id', 'name', 'description', 'status', 'reason'
     ];
 
     public function user()
     {
         return $this->belongsTo('JobForUs\User');
+    }
+
+    public function jobType()
+    {
+        return $this->belongsTo('JobForUs\Model\JobType');
     }
 
     public function getStatusParam()

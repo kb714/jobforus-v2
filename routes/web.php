@@ -7,7 +7,9 @@ Auth::routes();
 /**
  * Public Routes
  */
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home.index');
+//contact post
+Route::post('contacto', 'HomeController@contact')->name('home.contact');
 /**
  * Dashboard Namespace
  */
@@ -64,6 +66,19 @@ Route::group(['namespace' => 'Admin'], function(){
         Route::resource('usuarios', 'UsersController', [
             'names' => 'users'
         ]);
+//        CoverLetters route
+        Route::resource('cartas', 'CoverLettersController', [
+            'only'  => ['index', 'edit', 'update'],
+            'names' => 'cover-letters'
+        ]);
     });
 });
+
+/**
+* Public routes
+ */
+
+//show cover letter
+Route::get('{slug}', 'HomeController@page')->name('home.page');
+Route::get('{id}', 'HomeController@show')->name('home.show');
 

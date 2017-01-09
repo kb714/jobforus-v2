@@ -131,7 +131,10 @@ return [
         'company_contact_email'     => 'email persona de contacto',
         'company_contact_phone'     => 'teléfono persona de contacto',
         'password_confirmation'     => 'confirme contraseña',
-        'current_password'          => 'contraseña'
+        'current_password'          => 'contraseña',
+        'reason'                    => 'razón o nota',
+        'subject'                   => 'asunto',
+        'message'                   => 'mensaje'
     ],
 
 ];

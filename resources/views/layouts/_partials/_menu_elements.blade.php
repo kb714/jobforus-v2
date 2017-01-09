@@ -1,7 +1,7 @@
-<li class="{{Request::segment(1) == '' ? 'active' : ''}}"><a href="{{route('home')}}">Inicio</a></li>
-<li><a href="#">Cómo funciona</a></li>
-<li><a href="#">Transparentes</a></li>
-<li><a href="#">Contáctenos</a></li>
+<li class="{{Request::segment(1) == '' ? 'active' : ''}}"><a href="{{route('home.index')}}">Inicio</a></li>
+<li><a href="{{route('home.page', 'como-funciona')}}">Cómo funciona</a></li>
+<li><a href="{{route('home.page', 'transparentes')}}">Transparentes</a></li>
+<li><a href="{{route('home.page', 'contacto')}}">Contáctenos</a></li>
 @if(Auth::check())
     <li><a class="purple" href="{{route('dashboard.index')}}">
             Mi cuenta {{Auth::user()->profile->getUserTypeParam()}}

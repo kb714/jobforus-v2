@@ -15,6 +15,7 @@
                     <h2>Tipos de trabajo disponibles</h2>
                     <small>No habilitado</small>
                 </div>
+                @include('layouts._partials._alert')
                 <div class="body table-responsive">
                     <table class="table table-condensed table-bordered">
                         <thead>
@@ -47,7 +48,6 @@
                                                name="status"
                                                value="{{$item->status ? (int)FALSE : (int)TRUE}}">
                                     </form>
-                                    <a href="#" class="btn btn-warning">Editar</a>
                                 </td>
                             </tr>
                         @endforeach
