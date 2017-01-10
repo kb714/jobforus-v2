@@ -15,7 +15,7 @@ class Admin extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'email', 'password',
+        'name', 'username', 'email', 'password',
     ];
 
     /**
@@ -26,4 +26,14 @@ class Admin extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public static function build($data)
+    {
+        Admin::create([
+            'name'      => $data['name'],
+            'username'  => $data['username'],
+            'email'     => $data['email'],
+            'password'  => bcrypt($data['password']),
+        ]);
+    }
 }

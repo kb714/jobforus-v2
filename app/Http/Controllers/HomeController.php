@@ -4,6 +4,8 @@ namespace JobForUs\Http\Controllers;
 
 use Illuminate\Support\Facades\Mail;
 use JobForUs\Http\Requests\ContactPostRequest;
+use JobForUs\Mail\ContactAdmin;
+use JobForUs\Mail\ContactClient;
 use JobForUs\Mail\TestMail;
 use JobForUs\Model\CoverLetters;
 use JobForUs\Model\Page;
@@ -57,7 +59,8 @@ class HomeController extends Controller
 
     public function contact(ContactPostRequest $request)
     {
-        Mail::to($request->email)->send(new TestMail());
+        Mail::to('info@jobforus.cl')->send(new ContactAdmin($request->all()));
+        Mail::to($request->email)->send(new ContactClient());
 
         return redirect(route('home.page', 'contacto'))
             ->with('alert-success', 'Mensaje enviado con éxito, pronto nos pondremos en contacto con usted');

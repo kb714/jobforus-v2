@@ -26,7 +26,11 @@
                 </menu>
             </center>
             <hr>
-            <p class="text-center">Su mensaje fue recibido con éxito, pronto nos pondremos en contacto con usted</p>
+            <p>Recibimos un mensaje desde JobForUs:</p>
+            <p><b>Nombre:</b> {{$request['name']}}</p>
+            <p><b>Email:</b> {{$request['email']}}</p>
+            <p><b>Asunto:</b> {{$request['subject']}}</p>
+            <p><b>Mensaje:</b> {{$request['message']}}</p>
         </columns>
     </row>
 </container>

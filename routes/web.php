@@ -58,15 +58,25 @@ Route::group(['namespace' => 'AuthAdmin', 'prefix' => 'admin'], function(){
 Route::group(['namespace' => 'Admin'], function(){
     Route::get('admin', 'AdminController@index')->name('admin.index');
     Route::group(['prefix' => 'admin'], function(){
-//        job types route
+        // users route
+        Route::resource('perfil', 'ProfileController', [
+            'only' => ['index', 'store'],
+            'names' => 'admin-profile'
+        ]);
+        // admin users
+        Route::resource('administradores', 'AdminUserController', [
+            'except' => ['show'],
+            'names' => 'admin-users'
+        ]);
+        // job types route
         Route::resource('tipos-de-trabajo', 'JobTypesController', [
             'names' => 'job-types'
         ]);
-//        users route
+        // users route
         Route::resource('usuarios', 'UsersController', [
             'names' => 'users'
         ]);
-//        CoverLetters route
+        // CoverLetters route
         Route::resource('cartas', 'CoverLettersController', [
             'only'  => ['index', 'edit', 'update'],
             'names' => 'cover-letters'
@@ -75,7 +85,7 @@ Route::group(['namespace' => 'Admin'], function(){
 });
 
 /**
-* Public routes
+ * Public routes
  */
 
 //show cover letter

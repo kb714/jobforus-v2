@@ -1,10 +1,10 @@
 <?php
 
-namespace JobForUs\Http\Requests\Account;
+namespace JobForUs\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SecurityPostRequest extends FormRequest
+class ProfilePostRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +24,9 @@ class SecurityPostRequest extends FormRequest
     public function rules()
     {
         return [
-            'current_password'          => 'required|min:6|max:30',
-            'password'                  => 'min:6|max:30',
-            'password_confirmation'     => 'same:password',
-            'email'                     => 'min:5|max:255|email|unique:users'
+            'current_password' => 'required',
+            'password' => 'required',
+            'password_confirmation' => 'same:password'
         ];
     }
 }

@@ -52,17 +52,6 @@
 <!-- Overlay For Sidebars -->
 <div class="overlay"></div>
 <!-- #END# Overlay For Sidebars -->
-<!-- Search Bar -->
-<div class="search-bar">
-    <div class="search-icon">
-        <i class="material-icons">search</i>
-    </div>
-    <input type="text" placeholder="START TYPING...">
-    <div class="close-search">
-        <i class="material-icons">close</i>
-    </div>
-</div>
-<!-- #END# Search Bar -->
 <!-- Top Bar -->
 <nav class="navbar">
     <div class="container-fluid">
@@ -90,7 +79,7 @@
                 <div class="btn-group user-helper-dropdown">
                     <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                     <ul class="dropdown-menu pull-right">
-                        <li><a href="javascript:void(0);"><i class="material-icons">person</i>Perfil</a></li>
+                        <li><a href="{{route('admin-profile.index')}}"><i class="material-icons">person</i>Perfil</a></li>
                         <li role="seperator" class="divider"></li>
                         <li><a href="{{route('admin.logout')}}" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
@@ -118,6 +107,12 @@
                     <a href="{{route('job-types.index')}}">
                         <i class="material-icons">work</i>
                         <span>Tipos de trabajo</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('admin-users.index')}}">
+                        <i class="material-icons">group</i>
+                        <span>Administradores</span>
                     </a>
                 </li>
                 <li>
