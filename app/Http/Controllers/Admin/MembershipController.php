@@ -4,6 +4,7 @@ namespace JobForUs\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use JobForUs\Http\Controllers\Controller;
+use JobForUs\Model\Plan;
 
 class MembershipController extends Controller
 {
@@ -16,6 +17,10 @@ class MembershipController extends Controller
 
     public function index()
     {
+        $this->data = [
+            'data' => Plan::all()
+        ];
+
         return view($this->path.__FUNCTION__, $this->data);
     }
 }

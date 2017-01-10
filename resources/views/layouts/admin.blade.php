@@ -110,6 +110,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{route('memberships.index')}}">
+                        <i class="material-icons">card_membership</i>
+                        <span>Membresías (planes)</span>
+                    </a>
+                </li>
+                <li>
                     <a href="{{route('admin-users.index')}}">
                         <i class="material-icons">group</i>
                         <span>Administradores</span>

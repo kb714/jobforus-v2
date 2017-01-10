@@ -80,10 +80,12 @@
                                 <td class="collapsing"><b>Ubicación</b></td>
                                 <td>{{$data->profile->location->name}}</td>
                             </tr>
-                            <tr>
-                                <td class="collapsing"><b>Región</b></td>
-                                <td>{{$data->profile->region->name}}</td>
-                            </tr>
+                            @if($data->profile->location->id == 1)
+                                <tr>
+                                    <td class="collapsing"><b>Región</b></td>
+                                    <td>{{$data->profile->region->name}}</td>
+                                </tr>
+                            @endif
                             <tr class="bg-blue-grey">
                                 <td colspan="2"><b>Información de contacto</b></td>
                             </tr>

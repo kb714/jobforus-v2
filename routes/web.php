@@ -72,6 +72,10 @@ Route::group(['namespace' => 'Admin'], function(){
         Route::resource('tipos-de-trabajo', 'JobTypesController', [
             'names' => 'job-types'
         ]);
+        // membership's
+        Route::resource('membresias', 'MembershipController', [
+            'names' => 'memberships'
+        ]);
         // users route
         Route::resource('usuarios', 'UsersController', [
             'names' => 'users'

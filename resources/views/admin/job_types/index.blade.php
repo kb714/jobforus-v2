@@ -13,7 +13,6 @@
             <div class="card">
                 <div class="header">
                     <h2>Tipos de trabajo disponibles</h2>
-                    <small>No habilitado</small>
                 </div>
                 @include('layouts._partials._alert')
                 <div class="body table-responsive">

@@ -1,7 +1,6 @@
 @extends('layouts.admin')
 
 @section('content')
-
     <!-- Counter Examples -->
     <div class="block-header">
         <h2>
