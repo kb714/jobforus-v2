@@ -2,6 +2,8 @@
 
 namespace JobForUs\Http\Controllers\Auth;
 
+use Illuminate\Support\Facades\Mail;
+use JobForUs\Mail\NotificationMail;
 use JobForUs\Model\Location;
 use JobForUs\Model\Region;
 use JobForUs\User;
@@ -103,6 +105,13 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $data = User::build($data);
+
+        //refactorizar
+        $userType = $data->profile->user_type == 4 ? 'Persona' : 'Empresa';
+        $message = 'Un nuevo usuario se ha registrado en el sitio.<br>Tipo de cuenta: '. $userType .'. <br>Email: '.$data->email;
+        //./ refactorizar
+
+        Mail::to('info@jobforus.cl')->send(new NotificationMail($message));
 
         return $data;
     }

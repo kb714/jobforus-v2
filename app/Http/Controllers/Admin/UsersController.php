@@ -61,6 +61,7 @@ class UsersController extends Controller
 
     public function destroy($id)
     {
+        User::find($id)->delete();
         return redirect(route('users.index'))
             ->with('alert-success', 'Usuario eliminado con éxito');
     }

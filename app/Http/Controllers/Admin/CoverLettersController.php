@@ -11,10 +11,15 @@ class CoverLettersController extends Controller
 {
     private $path = 'admin.cover_letters.';
 
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+
     public function index()
     {
         $this->data = [
-            'data' => CoverLetters::all()
+            'data' => CoverLetters::orderBy('status')->get()
         ];
 
         return view($this->path.__FUNCTION__, $this->data);

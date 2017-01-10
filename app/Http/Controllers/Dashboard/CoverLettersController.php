@@ -1,16 +1,18 @@
 <?php
 
-namespace JobForUs\Http\Controllers\Dashboard\Account;
+namespace JobForUs\Http\Controllers\Dashboard;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use JobForUs\Http\Controllers\Controller;
 use JobForUs\Http\Requests\Account\CoverLettersPostRequest;
+use JobForUs\Mail\NotificationMail;
 use JobForUs\Model\JobType;
 
 class CoverLettersController extends Controller
 {
-    private $path = 'dashboard.account.cover_letters.';
+    private $path = 'dashboard.cover_letters.';
 
     public function __construct()
     {
@@ -34,6 +36,12 @@ class CoverLettersController extends Controller
     public function store(CoverLettersPostRequest $request)
     {
         Auth::user()->coverLetters()->create($request->all());
+
+        //refactorizar
+        $message = 'Una nueva carta de presentación espera su aprobación con el nombre de: '.$request->name;
+        //./ refactorizar
+
+        Mail::to('info@jobforus.cl')->send(new NotificationMail($message));
 
         return Redirect::to(route('letters.index'))
             ->with('alert-success', 'Carta creada con éxito, espere su aprobación.');

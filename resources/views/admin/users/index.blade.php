@@ -21,6 +21,7 @@
                             <thead>
                             <tr>
                                 <th>Nombre</th>
+                                <th>Usuario</th>
                                 <th>Email</th>
                                 <th>Membresía</th>
                                 <th>Tipo</th>
@@ -31,6 +32,7 @@
                             @foreach($data as $item)
                                 <tr>
                                     <td>{{$item->profile->name}}</td>
+                                    <td class="collapsing">{{$item->username}}</td>
                                     <td class="collapsing">{{$item->email}}</td>
                                     <td class="collapsing">{{$item->membership->plan->name}}</td>
                                     <td class="collapsing">{{$item->profile->getUserTypeParam()}}</td>

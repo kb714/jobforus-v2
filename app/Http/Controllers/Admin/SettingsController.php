@@ -7,5 +7,8 @@ use JobForUs\Http\Controllers\Controller;
 
 class SettingsController extends Controller
 {
-    //
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
 }

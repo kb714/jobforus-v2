@@ -1,6 +1,6 @@
 <?php
 
-namespace JobForUs\Http\Controllers\Dashboard\Account;
+namespace JobForUs\Http\Controllers\Dashboard;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -11,7 +11,7 @@ use JobForUs\Http\Requests\Account\SecurityPostRequest;
 
 class SecurityController extends Controller
 {
-    private $path = 'dashboard.account.security.';
+    private $path = 'dashboard.security.';
 
     public function __construct()
     {

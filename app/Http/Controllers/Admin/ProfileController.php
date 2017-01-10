@@ -12,6 +12,11 @@ class ProfileController extends Controller
 {
     private $path = 'admin.profile.';
 
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+
     public function index()
     {
         return view($this->path.__FUNCTION__, $this->data);

@@ -1,6 +1,6 @@
 <?php
 
-namespace JobForUs\Http\Controllers\Dashboard\Account;
+namespace JobForUs\Http\Controllers\Dashboard;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -10,7 +10,7 @@ use JobForUs\Http\Requests\Account\AdditionalInformationPostRequest;
 
 class AdditionalInformationController extends Controller
 {
-    private $path = 'dashboard.account.additional_information.';
+    private $path = 'dashboard.additional_information.';
 
     public function __construct()
     {

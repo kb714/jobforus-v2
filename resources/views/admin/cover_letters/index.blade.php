@@ -20,8 +20,8 @@
                     <table class="table table-condensed table-bordered">
                         <thead>
                         <tr>
-                            <th>ID</th>
                             <th>Nombre</th>
+                            <th>Persona</th>
                             <th>Usuario</th>
                             <th>Estado</th>
                             <th>Fecha</th>
@@ -31,9 +31,9 @@
                         <tbody>
                         @foreach($data as $item)
                             <tr>
-                                <td class="collapsing">{{$item->id}}</td>
                                 <td class="collapsing">{{$item->name}}</td>
                                 <td>{{$item->user->profile->name}} {{$item->user->profile->last_name}}</td>
+                                <td class="collapsing">{{$item->user->username}}</td>
                                 <td class="collapsing">{{$item->getStatusParam()}}</td>
                                 <td class="collapsing">{{$item->created_at}}</td>
                                 <td class="collapsing">

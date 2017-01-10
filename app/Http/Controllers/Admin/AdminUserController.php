@@ -12,6 +12,11 @@ class AdminUserController extends Controller
 {
     private $path = 'admin.admin_users.';
 
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+
     public function index()
     {
         $this->data = [

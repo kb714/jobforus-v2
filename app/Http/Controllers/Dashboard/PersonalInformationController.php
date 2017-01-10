@@ -1,6 +1,6 @@
 <?php
 
-namespace JobForUs\Http\Controllers\Dashboard\Account;
+namespace JobForUs\Http\Controllers\Dashboard;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,7 +13,7 @@ use JobForUs\Model\Region;
 
 class PersonalInformationController extends Controller
 {
-    private $path = 'dashboard.account.personal_information.';
+    private $path = 'dashboard.personal_information.';
 
     public function __construct()
     {

@@ -50,6 +50,16 @@ class User extends Authenticatable
         return $this->hasMany('JobForUs\Model\CoverLetters');
     }
 
+    protected static function boot() {
+        parent::boot();
+
+        static::deleting(function($user) {
+            $user->profile()->delete();
+            $user->membership()->delete();
+            $user->coverLetters()->delete();
+        });
+    }
+
     /**
      * @param array $data
      * @return static
