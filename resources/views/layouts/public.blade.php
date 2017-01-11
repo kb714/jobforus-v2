@@ -55,9 +55,9 @@
                             Te necesitan. Te buscan. <b>Te encuentran.</b>
                         </div>
                         <div class="form">
-                            <form class="form-inline">
+                            <form action="{{route('home.search')}}" class="form-inline">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="¿A quién buscas? Ingresa aquí tu(s) palabra(s) o frase(s) idóneas">
+                                    <input type="text" class="form-control" name="q" placeholder="¿A quién buscas?">
                                 </div>
                                 <button type="submit" class="btn btn-default"><b>Encontrar</b></button>
                             </form>
@@ -71,10 +71,10 @@
                             <b>"ESE"</b> trabajo te está buscando.<br>
                             Ayúdalo a <b>encontrarte</b>.
                         </div>
-                        <div class="form">
+                        <div action="{{route('home.search')}}" class="form">
                             <form class="form-inline">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Cargo o área profesional">
+                                    <input type="text" class="form-control" name="q" placeholder="Cargo o área profesional">
                                 </div>
                                 <button type="submit" class="btn btn-default"><b>Encontrar</b></button>
                             </form>

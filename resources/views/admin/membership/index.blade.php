@@ -15,10 +15,32 @@
                     <h2>Membresías con pagos pendientes</h2>
                 </div>
                 <div class="body">
-                    <p class="help-block">Ver:</p>
+                    <p class="help-block">Filtrar:</p>
                     <a href="{{route('memberships.index', ['status' => 0])}}" class="btn btn-warning">Pendientes</a>
                     <a href="{{route('memberships.index', ['status' => 4])}}" class="btn btn-success">Aprobados</a>
                     <a href="{{route('memberships.index', ['status' => 6])}}" class="btn btn-danger">Rechazados</a>
+                    <div class="help-block">Buscar orden:</div>
+                    <form action="{{route('memberships.index')}}">
+                        <div class="row">
+                            <div class="col-md-6">
+                                {{-- order --}}
+                                <label for="username">Orden</label>
+                                <div class="form-group">
+                                    <div class="form-line{{ $errors->has('order') ? ' error' : '' }}">
+                                        <input type="text" id="order" class="form-control" name="order"
+                                               value="{{old('order') ?? ''}}">
+                                    </div>
+                                    @if ($errors->has('order'))
+                                        <label class="error">{{ $errors->first('order') }}</label>
+                                    @endif
+                                </div>
+                                {{-- ./ order --}}
+                            </div>
+                            <div class="col-md-6">
+                                <button class="btn btn-primary waves-effect" type="submit">Buscar</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
                 @include('layouts._partials._alert')
                 @if($data->count() > 0)

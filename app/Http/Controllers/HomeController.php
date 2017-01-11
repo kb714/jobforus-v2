@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Mail;
 use JobForUs\Http\Requests\ContactPostRequest;
 use JobForUs\Mail\ContactAdmin;
 use JobForUs\Mail\ContactClient;
-use JobForUs\Mail\TestMail;
+use Illuminate\Http\Request;
 use JobForUs\Model\CoverLetters;
 use JobForUs\Model\Page;
 
@@ -24,6 +24,20 @@ class HomeController extends Controller
             'cover_letters' => CoverLetters::where('status', true)
                 ->orderBy('created_at', 'DESC')
                 ->get()
+        ];
+
+        return view(__FUNCTION__, $this->data);
+    }
+
+    public function search(Request $request)
+    {
+        $data = CoverLetters::where('name', 'like', '%' . $request->q . '%')
+            ->orWhere('description', 'like', '%' . $request->q . '%')
+            ->get();
+
+        $this->data = [
+            'slider' => true,
+            'data' => $data
         ];
 
         return view(__FUNCTION__, $this->data);

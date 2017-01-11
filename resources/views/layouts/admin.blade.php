@@ -134,6 +134,12 @@
                     </a>
                 </li>
                 <li class="header">Contenido</li>
+                <li>
+                    <a href="{{route('pages.index')}}">
+                        <i class="material-icons">pages</i>
+                        <span>Páginas de contenido</span>
+                    </a>
+                </li>
             </ul>
         </div>
         <!-- #Menu -->

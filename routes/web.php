@@ -8,6 +8,7 @@ Auth::routes();
  * Public Routes
  */
 Route::get('/', 'HomeController@index')->name('home.index');
+Route::get('/buscar', 'HomeController@search')->name('home.search');
 //contact post
 Route::post('contacto', 'HomeController@contact')->name('home.contact');
 /**
@@ -85,6 +86,11 @@ Route::group(['namespace' => 'Admin'], function(){
         Route::resource('cartas', 'CoverLettersController', [
             'only'  => ['index', 'edit', 'update'],
             'names' => 'cover-letters'
+        ]);
+        //page content
+        Route::resource('paginas', 'PagesController', [
+            'only'  => ['index', 'edit', 'update'],
+            'names' => 'pages'
         ]);
     });
 });

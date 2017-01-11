@@ -16,6 +16,66 @@
             </div>
             <hr>
             {!! $data->description !!}
+            @if(Auth::check() && Auth::user()->profile->user_type == 6)
+                @if(Auth::user()->membership->isValid())
+                    <a data-toggle="modal" data-target="#contact-data" href="#" class="btn btn-success btn-block">Ver datos de contacto</a>
+                    <div class="modal fade" id="contact-data" tabindex="-1">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabel">Datos de contacto</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <table class="ui table">
+                                        <tbody>
+                                        <tr>
+                                            <td class="collapsing">Nombre</td>
+                                            <td>{{$data->user->profile->name}} {{$data->user->profile->last_name}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="collapsing">Email</td>
+                                            <td>{{$data->user->email}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="collapsing">Teléfono</td>
+                                            <td>{{$data->user->profile->phone}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="collapsing">Facebook</td>
+                                            <td>{{$data->user->profile->facebook}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="collapsing">Twitter</td>
+                                            <td>{{$data->user->profile->twitter}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="collapsing">Otro</td>
+                                            <td>{{$data->user->profile->other}}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @else
+                    <div class="well">
+                        Para contactar a esta persona usted debe contratar un plan
+                        <a href="{{route('dashboard.index')}}">aquí</a>
+                    </div>
+                @endif
+            @else
+                <div class="well">
+                    Para contactar a esta persona usted debe registrar una cuenta de empresa
+                    <a href="{{route('register')}}">aquí</a>
+                </div>
+            @endif
         </div>
         <div class="col-md-6">
             <table class="ui table">

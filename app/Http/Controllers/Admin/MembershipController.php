@@ -23,13 +23,18 @@ class MembershipController extends Controller
 
     public function index(Request $request)
     {
+        $data = PayStatus::orderBy('status');
+
         if($request->has('status'))
-            $data = PayStatus::orderBy('status')->where('status', $request->status)->get();
+            $data->where('status', $request->status);
         else
-            $data = PayStatus::orderBy('status')->get();
+            $data->where('status', 0);
+
+        if($request->has('order'))
+            $data = PayStatus::where('order', 'like', '%' . $request->order . '%');
 
         $this->data = [
-            'data' => $data
+            'data' => $data->get()
         ];
 
         return view($this->path.__FUNCTION__, $this->data);
