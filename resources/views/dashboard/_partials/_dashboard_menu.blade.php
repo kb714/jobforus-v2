@@ -1,6 +1,10 @@
 <div class="col-md-4">
     <div class="list-group">
         @if(Auth::user()->profile->user_type == 4)
+            <a href="{{route('dashboard.index')}}" class="list-group-item">
+                <h4 class="list-group-item-heading">Membresía</h4>
+                <p class="list-group-item-text">Detalles de su plan</p>
+            </a>
             <a href="{{route('letters.index')}}" class="list-group-item">
                 <span class="badge">{{Auth::user()->coverLetters->count()}}</span>
                 <h4 class="list-group-item-heading">Mis cartas de presentación</h4>

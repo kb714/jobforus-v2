@@ -35,6 +35,10 @@ class CoverLettersController extends Controller
 
     public function store(CoverLettersPostRequest $request)
     {
+        if(Auth::user()->membership->plan_id == 1 && Auth::user()->coverLetters()->count() > 2){
+            return Redirect::to(route('letters.index'))
+                ->with('alert-success', 'Alcanzó el límite de 3 cartas de presentación, subscribase a un plan premium para no tener límites de publicación.');
+        }
         Auth::user()->coverLetters()->create($request->all());
 
         //refactorizar

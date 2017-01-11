@@ -112,7 +112,7 @@
                 <li>
                     <a href="{{route('memberships.index')}}">
                         <i class="material-icons">card_membership</i>
-                        <span>Membresías (planes)</span>
+                        <span>Membresías (pagos)</span>
                     </a>
                 </li>
                 <li>

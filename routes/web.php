@@ -15,6 +15,7 @@ Route::post('contacto', 'HomeController@contact')->name('home.contact');
  */
 Route::group(['namespace' => 'Dashboard'], function(){
     Route::get('cuenta', 'DashboardController@index')->name('dashboard.index');
+    Route::post('cuenta', 'DashboardController@generateOrder')->name('dashboard.order');
     Route::group(['prefix' => 'cuenta'], function(){
         Route::resource('cartas', 'CoverLettersController',
             [
