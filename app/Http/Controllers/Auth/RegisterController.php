@@ -60,7 +60,7 @@ class RegisterController extends Controller
             // user type: 4 Person, 6 Company
             'user_type'     => 'required|in:4,6',
             'name'          => 'required|min:3|max:255',
-            'identifier'    => 'required|max:30',//rut
+            'identifier'    => 'required|max:30|unique:profiles',//rut
             // PERSON VALIDATION
             'last_name'     => 'required_if:user_type,4|min:3|max:255',
             'job_type_id'   => 'required_if:user_type,4|exists:job_types,id',

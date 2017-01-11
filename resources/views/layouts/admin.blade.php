@@ -24,6 +24,8 @@
     <!-- Bootstrap Select Css -->
     <link href="/admin-assets/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
 
+    <link href="/admin-assets/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
+
     <!-- Custom Css -->
     <link href="/admin-assets/css/style.css" rel="stylesheet">
 

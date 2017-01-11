@@ -133,7 +133,42 @@
                                 <td>{{$data->profile->curricular_other}}</td>
                             </tr>
                         @else
-
+                            {{-- Company --}}
+                            <tr class="bg-blue-grey">
+                                <td colspan="2"><b>Información de la empresa</b></td>
+                            </tr>
+                            <tr>
+                                <td class="collapsing"><b>Giro</b></td>
+                                <td>{{$data->profile->commercial_business}}</td>
+                            </tr>
+                            <tr>
+                                <td class="collapsing"><b>Industria</b></td>
+                                <td>{{$data->profile->industry}}</td>
+                            </tr>
+                            <tr>
+                                <td class="collapsing"><b>Dirección</b></td>
+                                <td>{{$data->profile->address}}</td>
+                            </tr>
+                            <tr>
+                                <td class="collapsing"><b>Teléfono</b></td>
+                                <td>{{$data->profile->phone}}</td>
+                            </tr>
+                            <tr>
+                                <td class="collapsing"><b>Nombre persona de contacto</b></td>
+                                <td>{{$data->profile->company_contact_name}}</td>
+                            </tr>
+                            <tr>
+                                <td class="collapsing"><b>Cargo persona de contacto</b></td>
+                                <td>{{$data->profile->company_contact_position}}</td>
+                            </tr>
+                            <tr>
+                                <td class="collapsing"><b>Email persona de contacto</b></td>
+                                <td>{{$data->profile->company_contact_email}}</td>
+                            </tr>
+                            <tr>
+                                <td class="collapsing"><b>Teléfono persona de contacto</b></td>
+                                <td>{{$data->profile->company_contact_phone}}</td>
+                            </tr>
                         @endif
 
                         </tbody>

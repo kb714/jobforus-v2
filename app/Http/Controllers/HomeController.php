@@ -51,7 +51,8 @@ class HomeController extends Controller
             abort(404);
 
         $this->data = [
-            'data' => $data
+            'data' => $data,
+            'other' => $data->user->coverLetters()->where('id', '<>', $id)->get()
         ];
 
         return view('letters', $this->data);

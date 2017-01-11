@@ -6,10 +6,16 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use JobForUs\Model\Membership;
 use JobForUs\Model\Profile;
+use JobForUs\Notifications\PasswordResetNotification;
 
 class User extends Authenticatable
 {
     use Notifiable;
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new PasswordResetNotification($token));
+    }
 
     /**
      * The attributes that are mass assignable.

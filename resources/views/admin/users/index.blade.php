@@ -71,8 +71,8 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="alert alert-info text-right">
-                        Página: 1 de 1
+                    <div class="dataTables_paginate paging_simple_numbers text-right body">
+                        {{ $data->links() }}
                     </div>
                 @else
                     <div class="alert alert-info text-center">

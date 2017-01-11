@@ -22,7 +22,7 @@ class UsersController extends Controller
     public function index()
     {
         $this->data = [
-            'data' => User::orderBy('created_at', 'DESC')->get()
+            'data' => User::orderBy('created_at', 'DESC')->paginate(25)
         ];
 
         return view($this->path.__FUNCTION__, $this->data);

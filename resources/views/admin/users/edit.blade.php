@@ -336,6 +336,176 @@
                         @else
                             {{-- COMPANY --}}
                             <div class="help-block">Información de la empresa</div>
+
+                            <div class="row">
+
+                                {{-- name --}}
+                                <div class="col-lg-6">
+                                    <label for="name">Nombre o razón social *</label>
+                                    <div class="form-group">
+                                        <div class="form-line{{ $errors->has('name') ? ' error' : '' }}">
+                                            <input type="text" id="name" class="form-control" name="name"
+                                                   value="{{old('name') ?? $data->profile->name}}">
+                                        </div>
+                                        @if ($errors->has('name'))
+                                            <label class="error">{{ $errors->first('name') }}</label>
+                                        @endif
+                                    </div>
+                                </div>
+                                {{-- ./ name --}}
+
+                                {{-- identifier --}}
+                                <div class="col-lg-6">
+                                    <label for="identifier">Rut *</label>
+                                    <div class="form-group">
+                                        <div class="form-line{{ $errors->has('identifier') ? ' error' : '' }}">
+                                            <input type="text" id="identifier" class="form-control" name="identifier"
+                                                   value="{{old('identifier') ?? $data->profile->identifier}}">
+                                        </div>
+                                        @if ($errors->has('identifier'))
+                                            <label class="error">{{ $errors->first('identifier') }}</label>
+                                        @endif
+                                    </div>
+                                </div>
+                                {{-- ./ identifier --}}
+
+                            </div>
+
+                            <div class="row">
+
+                                {{-- commercial_business --}}
+                                <div class="col-lg-6">
+                                    <label for="commercial_business">Giro *</label>
+                                    <div class="form-group">
+                                        <div class="form-line{{ $errors->has('commercial_business') ? ' error' : '' }}">
+                                            <input type="text" id="commercial_business" class="form-control" name="commercial_business"
+                                                   value="{{old('commercial_business') ?? $data->profile->commercial_business}}">
+                                        </div>
+                                        @if ($errors->has('commercial_business'))
+                                            <label class="error">{{ $errors->first('commercial_business') }}</label>
+                                        @endif
+                                    </div>
+                                </div>
+                                {{-- ./ commercial_business --}}
+
+                                {{-- industry --}}
+                                <div class="col-lg-6">
+                                    <label for="industry">Industria *</label>
+                                    <div class="form-group">
+                                        <div class="form-line{{ $errors->has('industry') ? ' error' : '' }}">
+                                            <input type="text" id="identifier" class="form-control" name="industry"
+                                                   value="{{old('industry') ?? $data->profile->industry}}">
+                                        </div>
+                                        @if ($errors->has('industry'))
+                                            <label class="error">{{ $errors->first('industry') }}</label>
+                                        @endif
+                                    </div>
+                                </div>
+                                {{-- ./ industry --}}
+
+                            </div>
+
+                            <div class="row">
+
+                                {{-- address --}}
+                                <div class="col-lg-6">
+                                    <label for="address">Dirección *</label>
+                                    <div class="form-group">
+                                        <div class="form-line{{ $errors->has('address') ? ' error' : '' }}">
+                                            <input type="text" id="address" class="form-control" name="address"
+                                                   value="{{old('address') ?? $data->profile->address}}">
+                                        </div>
+                                        @if ($errors->has('address'))
+                                            <label class="error">{{ $errors->first('address') }}</label>
+                                        @endif
+                                    </div>
+                                </div>
+                                {{-- ./ address --}}
+
+                                {{-- phone --}}
+                                <div class="col-lg-6">
+                                    <label for="phone">Teléfono *</label>
+                                    <div class="form-group">
+                                        <div class="form-line{{ $errors->has('phone') ? ' error' : '' }}">
+                                            <input type="text" id="phone" class="form-control" name="phone"
+                                                   value="{{old('phone') ?? $data->profile->phone}}">
+                                        </div>
+                                        @if ($errors->has('phone'))
+                                            <label class="error">{{ $errors->first('phone') }}</label>
+                                        @endif
+                                    </div>
+                                </div>
+                                {{-- ./ phone --}}
+
+                            </div>
+
+                            <div class="row">
+
+                                {{-- company_contact_name --}}
+                                <div class="col-lg-6">
+                                    <label for="company_contact_name">Nombre persona de contacto *</label>
+                                    <div class="form-group">
+                                        <div class="form-line{{ $errors->has('company_contact_name') ? ' error' : '' }}">
+                                            <input type="text" id="company_contact_name" class="form-control" name="company_contact_name"
+                                                   value="{{old('company_contact_name') ?? $data->profile->company_contact_name}}">
+                                        </div>
+                                        @if ($errors->has('company_contact_name'))
+                                            <label class="error">{{ $errors->first('company_contact_name') }}</label>
+                                        @endif
+                                    </div>
+                                </div>
+                                {{-- ./ company_contact_name --}}
+
+                                {{-- company_contact_position --}}
+                                <div class="col-lg-6">
+                                    <label for="company_contact_position">Cargo persona de contacto *</label>
+                                    <div class="form-group">
+                                        <div class="form-line{{ $errors->has('company_contact_position') ? ' error' : '' }}">
+                                            <input type="text" id="company_contact_position" class="form-control" name="company_contact_position"
+                                                   value="{{old('company_contact_position') ?? $data->profile->company_contact_position}}">
+                                        </div>
+                                        @if ($errors->has('company_contact_position'))
+                                            <label class="error">{{ $errors->first('company_contact_position') }}</label>
+                                        @endif
+                                    </div>
+                                </div>
+                                {{-- ./ company_contact_position --}}
+
+                            </div>
+
+                            <div class="row">
+
+                                {{-- company_contact_email --}}
+                                <div class="col-lg-6">
+                                    <label for="company_contact_email">Email persona de contacto *</label>
+                                    <div class="form-group">
+                                        <div class="form-line{{ $errors->has('company_contact_email') ? ' error' : '' }}">
+                                            <input type="text" id="company_contact_email" class="form-control" name="company_contact_email"
+                                                   value="{{old('company_contact_email') ?? $data->profile->company_contact_email}}">
+                                        </div>
+                                        @if ($errors->has('company_contact_email'))
+                                            <label class="error">{{ $errors->first('company_contact_email') }}</label>
+                                        @endif
+                                    </div>
+                                </div>
+                                {{-- ./ company_contact_email --}}
+
+                                {{-- company_contact_phone --}}
+                                <div class="col-lg-6">
+                                    <label for="company_contact_phone">Teléfono persona de contacto *</label>
+                                    <div class="form-group">
+                                        <div class="form-line{{ $errors->has('company_contact_phone') ? ' error' : '' }}">
+                                            <input type="text" id="company_contact_phone" class="form-control" name="company_contact_phone"
+                                                   value="{{old('company_contact_phone') ?? $data->profile->company_contact_phone}}">
+                                        </div>
+                                        @if ($errors->has('company_contact_phone'))
+                                            <label class="error">{{ $errors->first('company_contact_phone') }}</label>
+                                        @endif
+                                    </div>
+                                </div>
+                                {{-- ./ company_contact_phone --}}
+
+                            </div>
                         @endif
 
                         <button class="btn btn-primary waves-effect" type="submit">Actualizar</button>
