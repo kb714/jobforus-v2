@@ -18,7 +18,6 @@ Artisan::command('inspire', function () {
 })->describe('Display an inspiring quote');
 
 Artisan::command('test', function(){
-    $result = \JobForUs\User::get(['username']);
-    $this->info(json_encode($result));
+    \Illuminate\Support\Facades\Mail::to('alderis@icloud.com')->send(new \JobForUs\Mail\NotificationMail('Mail test'));
 })->describe('test command');
 
