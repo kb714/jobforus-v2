@@ -57,6 +57,7 @@ class RegisterController extends Controller
             'username'      => 'required|max:255|unique:users',
             'email'         => 'required|email|max:255|unique:users',
             'password'      => 'required|min:6|max:255|confirmed',
+            'terms'         => 'required|accepted',
             // user type: 4 Person, 6 Company
             'user_type'     => 'required|in:4,6',
             'name'          => 'required|min:3|max:255',

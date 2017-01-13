@@ -21,7 +21,7 @@
                             </td>
                             <td>
                                 <a href="{{route('home.show', $item->id)}}" class="purple">{{$item->name}}</a>
-                                <span class="author">por {{$item->user->profile->name}} {{$item->user->profile->last_name}}</span>
+                                <span class="author">por {{$item->user->username}}</span>
                                 <hr class="visible-xs">
                                 <div class="purple-location visible-xs"></div>
                                 <div class="purple-post">Posteado {{$item->getCreatedAtParam()}}</div>

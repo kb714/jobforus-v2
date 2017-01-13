@@ -129,8 +129,8 @@
         <div class="col-md-6">
             <table class="ui table">
                 <tr>
-                    <td class="collapsing"><b>Nombre:</b></td>
-                    <td>{{$data->user->profile->name}} {{$data->user->profile->last_name}}</td>
+                    <td class="collapsing"><b>Usuario:</b></td>
+                    <td>{{$data->user->username}}</td>
                 </tr>
                 <tr>
                     <td class="collapsing"><b>Situación laboral:</b></td>

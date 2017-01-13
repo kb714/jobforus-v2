@@ -31,8 +31,14 @@ class HomeController extends Controller
 
     public function search(Request $request)
     {
-        $data = CoverLetters::where('name', 'like', '%' . $request->q . '%')
-            ->orWhere('description', 'like', '%' . $request->q . '%')
+        $data = CoverLetters::where([
+            ['status', true],
+            ['name', 'like', '%' . $request->q . '%']
+        ])
+            ->orWhere([
+                ['status', true],
+                ['description', 'like', '%' . $request->q . '%']
+            ])
             ->get();
 
         $this->data = [
@@ -52,7 +58,10 @@ class HomeController extends Controller
 
         $this->data = [
             'data' => $data,
-            'other' => $data->user->coverLetters()->where('id', '<>', $id)->get()
+            'other' => $data->user->coverLetters()
+                ->where('status', true)
+                ->where('id', '<>', $id)
+                ->get()
         ];
 
         return view('letters', $this->data);

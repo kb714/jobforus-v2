@@ -78,6 +78,10 @@ Route::group(['namespace' => 'Admin'], function(){
         Route::resource('membresias', 'MembershipController', [
             'names' => 'memberships'
         ]);
+        // plans
+        Route::resource('planes', 'PlanController', [
+            'names' => 'admin-plans'
+        ]);
         // users route
         Route::resource('usuarios', 'UsersController', [
             'names' => 'users'

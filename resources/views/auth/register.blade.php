@@ -520,6 +520,24 @@
                         </fieldset>
                         {{-- ./COMPANY REGISTRATION FIELDSET--}}
 
+                        <div class="form-group{{ $errors->has('terms') ? ' has-error' : '' }}">
+                            <div class="col-md-offset-4 col-md-6">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="terms">
+                                        <a href="{{route('home.page', 'transparentes')}}" target="_blank">
+                                            Acepto los Términos y condiciones
+                                        </a>
+                                        @if ($errors->has('terms'))
+                                            <span class="help-block">
+                                        <strong>{{ $errors->first('terms') }}</strong>
+                                    </span>
+                                        @endif
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">

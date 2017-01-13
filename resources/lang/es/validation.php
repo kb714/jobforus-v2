@@ -134,7 +134,8 @@ return [
         'current_password'          => 'contraseña',
         'reason'                    => 'razón o nota',
         'subject'                   => 'asunto',
-        'message'                   => 'mensaje'
+        'message'                   => 'mensaje',
+        'terms'                     => 'términos y condiciones'
     ],
 
 ];
