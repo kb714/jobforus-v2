@@ -17,6 +17,7 @@ class CreatePlansTable extends Migration
             $table->increments('id');
             $table->integer('user_type_id');
             $table->boolean('status')->default(true);
+            $table->boolean('highlight')->default(false);
             $table->integer('weight')->default(0);
             $table->string('name');
             $table->text('description')->nullable();

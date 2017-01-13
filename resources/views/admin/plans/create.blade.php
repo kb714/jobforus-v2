@@ -21,64 +21,108 @@
 
                         <div class="row">
                             <div class="col-lg-6">
-                                {{-- username --}}
-                                <label for="username">Nombre de usuario</label>
+                                {{-- name --}}
+                                <label for="name">Nombre *</label>
                                 <div class="form-group">
-                                    <div class="form-line{{ $errors->has('username') ? ' error' : '' }}">
-                                        <input type="text" id="username" class="form-control" name="username">
+                                    <div class="form-line{{ $errors->has('name') ? ' error' : '' }}">
+                                        <input type="text" id="name" class="form-control" name="name">
                                     </div>
-                                    @if ($errors->has('username'))
-                                        <label class="error">{{ $errors->first('username') }}</label>
+                                    @if ($errors->has('name'))
+                                        <label class="error">{{ $errors->first('name') }}</label>
                                     @endif
                                 </div>
-                                {{-- ./ username --}}
+                                {{-- ./ name  --}}
                             </div>
 
                             <div class="col-lg-6">
-                                {{-- email --}}
-                                <label for="email">Correo electrónico</label>
+                                {{-- price --}}
+                                <label for="price">Precio *</label>
                                 <div class="form-group">
-                                    <div class="form-line{{ $errors->has('email') ? ' error' : '' }}">
-                                        <input type="email" id="email" class="form-control" name="email">
+                                    <div class="form-line{{ $errors->has('price') ? ' error' : '' }}">
+                                        <input type="number" id="price" class="form-control" name="price">
                                     </div>
-                                    @if ($errors->has('email'))
-                                        <label class="error">{{ $errors->first('email') }}</label>
+                                    @if ($errors->has('price'))
+                                        <label class="error">{{ $errors->first('price') }}</label>
                                     @endif
                                 </div>
-                                {{-- ./ email --}}
+                                {{-- ./ price --}}
                             </div>
                         </div>
 
                         <div class="row">
 
                             <div class="col-lg-6">
-                                {{-- password --}}
-                                <label for="password">Contraseña</label>
-                                <div class="form-group">
-                                    <div class="form-line{{ $errors->has('password') ? ' error' : '' }}">
-                                        <input type="password" id="password" class="form-control" name="password">
-                                    </div>
-                                    @if ($errors->has('password'))
-                                        <label class="error">{{ $errors->first('password') }}</label>
-                                    @endif
-                                </div>
-                                {{-- ./ password --}}
+                                {{-- user_type_id --}}
+                                <label for="user_type_id">Tipo de usuario</label>
+                                <select name="user_type_id" class="form-control show-tick">
+                                    <option value="4"
+                                            {{old('user_type_id') == 4 ? 'selected':null}}>
+                                        Persona
+                                    </option>
+                                    <option value="6"
+                                            {{old('user_type_id') == 6 ? 'selected':null}}>
+                                        Empresa
+                                    </option>
+                                </select>
+                                @if ($errors->has('user_type_id'))
+                                    <label class="error">{{ $errors->first('user_type_id') }}</label>
+                                @endif
+                                {{-- ./ user_type_id --}}
                             </div>
 
                             <div class="col-lg-6">
-                                {{-- password_confirmation --}}
-                                <label for="password_confirmation">Confirme contraseña</label>
+                                {{-- quantity --}}
+                                <label for="quantity">Cantidad (días) *</label>
                                 <div class="form-group">
-                                    <div class="form-line{{ $errors->has('password_confirmation') ? ' error' : '' }}">
-                                        <input type="password" id="password_confirmation" class="form-control" name="password_confirmation">
+                                    <div class="form-line{{ $errors->has('quantity') ? ' error' : '' }}">
+                                        <input type="number" id="quantity" class="form-control" name="quantity">
                                     </div>
-                                    @if ($errors->has('password_confirmation'))
-                                        <label class="error">{{ $errors->first('password_confirmation') }}</label>
+                                    @if ($errors->has('quantity'))
+                                        <label class="error">{{ $errors->first('quantity') }}</label>
                                     @endif
                                 </div>
-                                {{-- ./ password_confirmation --}}
+                                {{-- ./ quantity --}}
                             </div>
 
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                {{-- highlight --}}
+                                <label for="highlight">¿Destacar?</label>
+                                <select name="highlight" class="form-control show-tick">
+                                    <option value="{{ (int) FALSE }}"
+                                            {{old('highlight') == (int) FALSE ? 'selected':null}}>
+                                        No
+                                    </option>
+                                    <option value="{{ (int) TRUE }}"
+                                            {{old('highlight') == (int) TRUE ? 'selected':null}}>
+                                        Si
+                                    </option>
+                                </select>
+                                @if ($errors->has('highlight'))
+                                    <label class="error">{{ $errors->first('highlight') }}</label>
+                                @endif
+                                {{-- ./ highlight --}}
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                {{-- description --}}
+                                <label for="description">Descripción</label>
+                                <div class="form-group">
+                                    <div class="form-line{{ $errors->has('description') ? ' error' : '' }}">
+                                <textarea name="description" id="ckeditor">
+                                    {{old('description')}}
+                                </textarea>
+                                    </div>
+                                    @if ($errors->has('description'))
+                                        <label class="error">{{ $errors->first('description') }}</label>
+                                    @endif
+                                </div>
+                                {{-- ./ description --}}
+                            </div>
                         </div>
 
                         <button class="btn btn-primary waves-effect" type="submit">Crear</button>
