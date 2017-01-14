@@ -4,6 +4,7 @@ namespace JobForUs;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Auth;
 use JobForUs\Model\Membership;
 use JobForUs\Model\Profile;
 use JobForUs\Notifications\PasswordResetNotification;
@@ -54,6 +55,23 @@ class User extends Authenticatable
     public function coverLetters()
     {
         return $this->hasMany('JobForUs\Model\CoverLetters');
+    }
+
+    public function payStatus()
+    {
+        return $this->hasMany('JobForUs\Model\PayStatus');
+    }
+
+    public function payPlanPending()
+    {
+        if(Auth::user()->payStatus->where('status', 0)->count() > 0)
+            return true;
+        return false;
+    }
+
+    public function getPayPending()
+    {
+        return Auth::user()->payStatus->where('status', 0)->first();
     }
 
     protected static function boot() {

@@ -21,6 +21,13 @@ class PayStatus extends Model
         return $this->belongsTo('JobForUs\User');
     }
 
+    public function isPending()
+    {
+        if($this->attributes['status'] == 0)
+            return true;
+        return false;
+    }
+
     public function getStatusParam()
     {
         switch($this->attributes['status']){

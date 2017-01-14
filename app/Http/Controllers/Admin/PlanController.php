@@ -32,7 +32,8 @@ class PlanController extends Controller
 
     public function store(PlanPostRequest $request)
     {
-
+        Plan::create($request->all());
+        return redirect(route('admin-plans.index'))->with('alert-success', 'Plan creado con éxito');
     }
 
     public function edit($id)

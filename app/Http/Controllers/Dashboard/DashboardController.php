@@ -34,10 +34,13 @@ class DashboardController extends Controller
         return view($this->path.__FUNCTION__, $this->data);
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function generateOrder(Request $request)
     {
-        $data = PayStatus::create([
-            'user_id'   => Auth::user()->id,
+        $data = Auth::user()->payStatus()->create([
             'plan_id'   => $request->plan_id,
             'order'     => 'PJOB-'.time()
         ]);
@@ -47,5 +50,18 @@ class DashboardController extends Controller
         ];
 
         return view($this->path.__FUNCTION__, $this->data);
+    }
+
+    /**
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function destroyOrder()
+    {
+        Auth::user()->payStatus()->where('status', 0)->update([
+            'status' => 6
+        ]);
+
+        return redirect(route('dashboard.index'))
+            ->with('alert-warning', 'Orden cancelada');
     }
 }

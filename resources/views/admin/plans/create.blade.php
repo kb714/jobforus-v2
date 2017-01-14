@@ -126,7 +126,7 @@
                         </div>
 
                         <button class="btn btn-primary waves-effect" type="submit">Crear</button>
-                        <a href="{{route('admin-users.index')}}" class="btn btn-default">Volver</a>
+                        <a href="{{route('admin-plans.index')}}" class="btn btn-default">Volver</a>
 
                     </form>
                 </div>

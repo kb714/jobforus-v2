@@ -17,6 +17,7 @@ Route::post('contacto', 'HomeController@contact')->name('home.contact');
 Route::group(['namespace' => 'Dashboard'], function(){
     Route::get('cuenta', 'DashboardController@index')->name('dashboard.index');
     Route::post('cuenta', 'DashboardController@generateOrder')->name('dashboard.order');
+    Route::delete('cuenta', 'DashboardController@destroyOrder');
     Route::group(['prefix' => 'cuenta'], function(){
         Route::resource('cartas', 'CoverLettersController',
             [
@@ -77,6 +78,10 @@ Route::group(['namespace' => 'Admin'], function(){
         // membership's
         Route::resource('membresias', 'MembershipController', [
             'names' => 'memberships'
+        ]);
+        //admin plans
+        Route::resource('planes', 'PlanController', [
+            'names' => 'admin-plans'
         ]);
         // users route
         Route::resource('usuarios', 'UsersController', [
