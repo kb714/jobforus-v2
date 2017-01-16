@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Membership extends Model
 {
     protected $fillable = [
-        'plan_id'
+        'plan_id', 'beginning_at', 'ends_at', 'notify_status'
     ];
 
     protected $dates = ['ends_at', 'beginning_at'];
@@ -16,6 +16,11 @@ class Membership extends Model
     public function plan()
     {
         return $this->belongsTo('JobForUs\Model\Plan');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('JobForUs\User');
     }
 
     public function isValid()

@@ -48,12 +48,20 @@ class MembershipController extends Controller
             'status' => $request->status
         ]);
 
+        if($request->status == 0){
+            $data->user->membership->update([
+                'notify_status' => 0
+            ]);
+        }
+
         if($request->status == 4){
-            //update membership (refactor need)
-            $data->user->membership->plan_id = $data->plan_id;
-            $data->user->membership->beginning_at = Carbon::now();
-            $data->user->membership->ends_at = Carbon::now()->addDays($data->plan->quantity);
-            $data->user->membership->save();
+            //update membership
+            $data->user->membership->update([
+                'plan_id' => $data->plan_id,
+                'beginning_at' => Carbon::now(),
+                'ends_at' => Carbon::now()->addDays($data->plan->quantity),
+                'notify_status' => $data->plan->quantity > 10 ? 1 : 2
+            ]);
             //send emails
             $message = 'La cuenta del usuario <b>'.$data->user->username. '</b> fue actualizada a plan <b>'.$data->plan->name.'</b>';
             Mail::to('info@jobforus.cl')->send(new NotificationMail($message));

@@ -22,7 +22,7 @@ class HomeController extends Controller
         $this->data = [
             'slider'        => true,
             'cover_letters' => CoverLetters::where('status', true)
-                ->orderBy('created_at', 'DESC')
+                ->orderBy('updated_at', 'DESC')
                 ->get()
         ];
 

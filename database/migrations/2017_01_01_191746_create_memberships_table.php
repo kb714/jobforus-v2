@@ -18,6 +18,8 @@ class CreateMembershipsTable extends Migration
             $table->integer('user_id');
             $table->integer('plan_id');
 
+            $table->integer('notify_status')->default(0);
+
             $table->timestamp('trial_end_at')->nullable();
             $table->timestamp('beginning_at')->nullable();
             $table->timestamp('ends_at')->nullable();
