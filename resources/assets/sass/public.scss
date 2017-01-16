@@ -119,6 +119,14 @@ body{
   margin-top: 30px;
   background-color: #F5F5F5;
   width: 100%;
+  tr.highlight{
+    background-color: #FFF9C4;
+  }
+  .label-highlight{
+    background-color: #FFFF00;
+    color: #000;
+    width: 100%;
+  }
 }
 .landing-table >tbody>tr>td{
   border-top: none;

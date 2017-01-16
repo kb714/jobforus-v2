@@ -8772,6 +8772,16 @@ body .margin-top-public {
   width: 100%;
 }
 
+.landing-table tr.highlight {
+  background-color: #FFF9C4;
+}
+
+.landing-table .label-highlight {
+  background-color: #FFFF00;
+  color: #000;
+  width: 100%;
+}
+
 .landing-table > tbody > tr > td {
   border-top: none;
   vertical-align: middle;

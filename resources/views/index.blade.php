@@ -13,8 +13,11 @@
                 <table class="table landing-table table-striped">
                     <tbody>
                     @foreach($cover_letters as $item)
-                        <tr>
+                        <tr class="{{$item->user->membership->plan->highlight ? 'highlight z-depth-1' : ''}}">
                             <td class="hidden-xs">
+                                @if($item->user->membership->plan->highlight == (int)true)
+                                    <div class="label-highlight text-center">Destacado</div>
+                                @endif
                                 <div class="job-type-box text-center">
                                     <span class="label label-job z-depth-1">{{$item->jobType->name}}</span>
                                 </div>
