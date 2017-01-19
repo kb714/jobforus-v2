@@ -21,9 +21,9 @@ class HomeController extends Controller
     {
         $this->data = [
             'slider'        => true,
-            'cover_letters' => CoverLetters::where('status', true)
+            'data' => CoverLetters::where('status', true)
                 ->orderBy('updated_at', 'DESC')
-                ->get()
+                ->paginate(10)
         ];
 
         return view(__FUNCTION__, $this->data);

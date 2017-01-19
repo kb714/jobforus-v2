@@ -114,7 +114,7 @@
             @endif
             @if($other->count() > 0)
                 <hr>
-                <h4>Otras publicaciones de {{$data->user->profile->name}} {{$data->user->profile->last_name}}<h4/>
+                <h4>Otras publicaciones de {{$data->user->username}}<h4/>
                 <table class="ui table">
                     <tbody>
                     @foreach($other as $item)
@@ -132,30 +132,42 @@
                     <td class="collapsing"><b>Usuario:</b></td>
                     <td>{{$data->user->username}}</td>
                 </tr>
+                @if($data->user->profile->employment_situation)
                 <tr>
                     <td class="collapsing"><b>Situación laboral:</b></td>
                     <td>{{$data->user->profile->employment_situation}}</td>
                 </tr>
+                @endif
+                @if($data->user->profile->experience)
                 <tr>
                     <td class="collapsing"><b>Años de experiencia:</b></td>
                     <td>{{$data->user->profile->experience}}</td>
                 </tr>
+                @endif
+                @if($data->user->profile->study_level)
                 <tr>
                     <td class="collapsing"><b>Nivel de estudio:</b></td>
                     <td>{{$data->user->profile->study_level}}</td>
                 </tr>
+                @endif
+                @if($data->user->profile->study_title)
                 <tr>
                     <td class="collapsing"><b>Título:</b></td>
                     <td>{{$data->user->profile->study_title}}</td>
                 </tr>
+                @endif
+                @if($data->user->profile->languages)
                 <tr>
                     <td class="collapsing"><b>Idioma(s):</b></td>
                     <td>{{$data->user->profile->languages}}</td>
                 </tr>
+                @endif
+                @if($data->user->profile->curricular_other)
                 <tr>
                     <td class="collapsing"><b>Otro:</b></td>
                     <td>{{$data->user->profile->curricular_other}}</td>
                 </tr>
+                @endif
             </table>
         </div>
     </div>

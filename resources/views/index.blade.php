@@ -9,10 +9,10 @@
     </div>
     <div class="row">
         <div class="col-xs-12">
-            @if($cover_letters->count() > 0)
+            @if($data->count() > 0)
                 <table class="table landing-table table-striped">
                     <tbody>
-                    @foreach($cover_letters as $item)
+                    @foreach($data as $item)
                         <tr class="{{$item->user->membership->plan->highlight ? 'highlight z-depth-1' : ''}}">
                             <td class="hidden-xs">
                                 @if($item->user->membership->plan->highlight == (int)true)
@@ -40,6 +40,9 @@
                     @endforeach
                     </tbody>
                 </table>
+                <div class="text-center">
+                    {{ $data->links() }}
+                </div>
             @else
                 <hr>
                 <div class="alert alert-primary text-center">

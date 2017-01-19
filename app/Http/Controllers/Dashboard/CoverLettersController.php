@@ -39,6 +39,12 @@ class CoverLettersController extends Controller
             return Redirect::to(route('letters.index'))
                 ->with('alert-success', 'Alcanzó el límite de 3 cartas de presentación, subscribase a un plan premium para no tener límites de publicación.');
         }
+
+        if(Auth::user()->membership->plan_id > 1 && Auth::user()->coverLetters()->count() > 9){
+            return Redirect::to(route('letters.index'))
+                ->with('alert-success', 'Alcanzó el límite de 10 cartas de presentación.');
+        }
+
         Auth::user()->coverLetters()->create($request->all());
 
         //refactorizar
