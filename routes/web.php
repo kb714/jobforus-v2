@@ -21,7 +21,6 @@ Route::group(['namespace' => 'Dashboard'], function(){
     Route::group(['prefix' => 'cuenta'], function(){
         Route::resource('cartas', 'CoverLettersController',
             [
-                'except' => ['edit', 'update'],
                 'names' => 'letters'
             ]
         );
@@ -87,6 +86,7 @@ Route::group(['namespace' => 'Admin'], function(){
         Route::resource('usuarios', 'UsersController', [
             'names' => 'users'
         ]);
+        Route::post('usuarios/cambiar-plan', 'UsersController@changePlan')->name('users.change-plan');
         // CoverLetters route
         Route::resource('cartas', 'CoverLettersController', [
             'only'  => ['index', 'edit', 'update'],

@@ -30,7 +30,6 @@ class PlanPostRequest extends FormRequest
             'user_type_id' => 'required|in:4,6',
             'description' => 'max:2000',
             'highlight' => 'required|boolean'
-
         ];
     }
 }

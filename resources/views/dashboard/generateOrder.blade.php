@@ -2,7 +2,9 @@
 
 @section('content')
     @include('dashboard._partials._dashboard_header')
+
     <div class="row">
+
         @include('dashboard._partials._dashboard_menu')
 
         {{-- Dashboard content --}}
@@ -14,10 +16,11 @@
             {{--./breadcrumb --}}
 
             <div class="alert alert-primary text-center">
-                <b> Su plan actual es</b>: Cuenta {{Auth::user()->membership->plan->name}}
+                <b> Su plan actual es</b>: Cuenta {{ Auth::user()->membership->plan->name }}
             </div>
             <hr>
             <p class="text-center"><b>Orden generada</b></p>
+
             @include('dashboard._partials._display_order')
 
         </div>

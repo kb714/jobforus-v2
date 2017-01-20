@@ -18,4 +18,9 @@ class Plan extends Model
         return 'Empresa';
     }
 
+    public function getPriceParam()
+    {
+        return '$ '.number_format($this->attributes['price'], 0, ',', '.').' CLP';
+    }
+
 }

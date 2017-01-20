@@ -1,7 +1,7 @@
 <div class="alert alert-danger text-center">
     No olvide incluir su orden de compra en el identificador de webpay.cl
     <br>
-    Orden: <b>{{Auth::user()->getPayPending()->order}}</b>
+    Orden: <b>{{ Auth::user()->getPayPending()->order }}</b>
 </div>
 <table class="ui table">
     <thead>
@@ -14,10 +14,10 @@
     </thead>
     <tbody>
     <tr>
-        <td>{{Auth::user()->getPayPending()->order}}</td>
-        <td>{{Auth::user()->getPayPending()->plan->name}}</td>
-        <td>{{Auth::user()->getPayPending()->plan->price}}</td>
-        <td>{{Auth::user()->getPayPending()->plan->quantity}} días</td>
+        <td>{{ Auth::user()->getPayPending()->order }}</td>
+        <td>{{ Auth::user()->getPayPending()->plan->name }}</td>
+        <td>{{ Auth::user()->getPayPending()->plan->price }}</td>
+        <td>{{ Auth::user()->getPayPending()->plan->quantity }} días</td>
     </tr>
     </tbody>
     <tfoot class="full-width">
@@ -41,5 +41,5 @@
 </table>
 <div class="alert alert-success text-center">
     una vez que pague su membresía en webpay.cl deberá esperar a que se acredite su pago, se le enviará
-    un correo de notificación a <b>{{Auth::user()->email}}</b> cuando su cuenta sea actualizada
+    un correo de notificación a <b>{{ Auth::user()->email }}</b> cuando su cuenta sea actualizada
 </div>

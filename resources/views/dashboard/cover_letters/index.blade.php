@@ -39,8 +39,17 @@
                     @foreach(Auth::user()->coverLetters as $item)
                         <tr>
                             <td class="collapsing">{{$item->name}}</td>
-                            <td>{{$item->getStatusParam()}}</td>
+                            <td>
+                                {{$item->getStatusParam()}}
+                                @if( $item->reason && $item->status == (int) FALSE )
+                                    <hr>
+                                    <div class="alert alert-warning">
+                                        <b>Esta carta no fue aprobada por la siguiente razón: </b>{{$item->reason}}
+                                    </div>
+                                @endif
+                            </td>
                             <td class="collapsing">
+                                <a href="{{ route('letters.edit', $item) }}">Editar</a>
                                 <a href="#" data-toggle="modal" data-target="#m{{$item->id}}">Eliminar</a>
                                 <div class="modal fade" id="m{{$item->id}}" tabindex="-1">
                                     <div class="modal-dialog">

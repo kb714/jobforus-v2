@@ -18,6 +18,33 @@
                 </div>
                 @include('layouts._partials._alert')
                 <div class="body">
+                    <h4>Detalles de plan</h4>
+                    @if( $data->membership->isValid() )
+                        <div class="alert alert-info">Este usuario tiene un plan activo: <b>{{ $data->membership->plan->name }}</b></div>
+                        <form action="{{ route('users.change-plan') }}" class="text-center" method="POST">
+                            {{ csrf_field() }}
+                            <input type="hidden" name="action" value="disable">
+                            <input type="hidden" name="id" value="{{$data->id}}">
+                            <div class="help-block">Esta acción es definitiva, tendrá que asignar un nuevo plan después</div>
+                            <button class="btn btn-danger">Eliminar Plan</button>
+                        </form>
+                    @else
+                        <div class="help-block">Asignar un plan</div>
+                        @foreach($plans as $item)
+                            <form action="{{ route('users.change-plan') }}" method="POST">
+                                {{ csrf_field() }}
+                                <input type="hidden" name="action" value="change">
+                                <input type="hidden" name="id" value="{{$data->id}}">
+                                <input type="hidden" name="plan_id" value="{{$item->id}}">
+                                <button class="btn btn-success">Cambiar a {{ $item->name }}</button>
+                                por {{$item->quantity}} días ({{$item->getPriceParam()}})
+                            </form>
+                        @endforeach
+                    @endif
+                </div>
+                <hr>
+                <div class="body">
+                    <h4>Información de la cuenta</h4>
                     <form id="register" action="{{route('users.update', $data->id)}}"
                           method="POST">
 

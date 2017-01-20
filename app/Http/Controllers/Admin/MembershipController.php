@@ -49,9 +49,22 @@ class MembershipController extends Controller
         ]);
 
         if($request->status == 0){
-            $data->user->membership->update([
-                'notify_status' => 0
-            ]);
+            if( $data->user->profile->user_type == 4 ){
+                //change status
+                $data->user->membership->update([
+                    'notify_status' => 0,
+                    'plan_id' => 1,
+                    'ends_at' => null,
+                    'beginning_at' => null
+                ]);
+            } else {
+                $data->user->membership->update([
+                    'notify_status' => 0,
+                    'plan_id' => 2,
+                    'ends_at' => null,
+                    'beginning_at' => null
+                ]);
+            }
         }
 
         if($request->status == 4){

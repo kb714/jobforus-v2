@@ -4,7 +4,7 @@
 <li><a href="{{route('home.page', 'contacto')}}">Contáctenos</a></li>
 @if(Auth::check())
     <li><a class="purple" href="{{route('dashboard.index')}}">
-            Mi cuenta {{Auth::user()->profile->getUserTypeParam()}}
+            {{ Auth::user()->username }} | {{ Auth::user()->profile->getUserTypeParam() }}
             <span class="badge">{{Auth::user()->membership->plan->name}}</span></a>
     </li>
     <li><a class="purple" href="{{route('logout')}}" onclick="event.preventDefault();

@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use JobForUs\Http\Controllers\Controller;
 use JobForUs\Http\Requests\Account\CoverLettersPostRequest;
+use JobForUs\Http\Requests\Account\CoverLettersPutRequest;
+use JobForUs\Http\Requests\Admin\CoverLetterPutRequest;
 use JobForUs\Mail\NotificationMail;
 use JobForUs\Model\JobType;
 
@@ -64,6 +66,42 @@ class CoverLettersController extends Controller
             return $data;
         abort(404);
 
+    }
+
+    public function edit($id)
+    {
+        $data = Auth::user()->coverLetters->find($id);
+        if($data){
+            $this->data = [
+                'jobs_types' => JobType::where('status', 1)->orderBy('weight')->get(),
+                'data' => $data
+            ];
+            return view($this->path.__FUNCTION__, $this->data);
+        }
+        abort(404);
+    }
+
+    public function update(CoverLettersPutRequest $request, $id)
+    {
+        $data = Auth::user()->coverLetters->find($id);
+
+        if( $data->status == 1 ) {
+
+            $message = 'Una carta de presentación recibió una actualización, queda a la espera de su aprobación con el nombre de: '.$request->name;
+            Mail::to('info@jobforus.cl')->send(new NotificationMail($message));
+
+        }
+
+        $data->update([
+            'name'          => $request->name,
+            'description'   => $request->description,
+            'job_type_id'   => $request->job_type_id,
+            'reason'        => null,
+            'status'        => (int) FALSE
+        ]);
+
+        return Redirect::to(route('letters.index'))
+            ->with('alert-success', 'Carta actualizada con éxito, espere su aprobación.');
     }
 
     public function destroy($id)

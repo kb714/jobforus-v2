@@ -32,29 +32,37 @@
                                     <table class="ui table">
                                         <tbody>
                                         <tr>
-                                            <td class="collapsing">Nombre</td>
-                                            <td>{{$data->user->profile->name}} {{$data->user->profile->last_name}}</td>
+                                            <td class="collapsing">Usuario</td>
+                                            <td>{{$data->user->username}}</td>
                                         </tr>
                                         <tr>
                                             <td class="collapsing">Email</td>
                                             <td>{{$data->user->email}}</td>
                                         </tr>
-                                        <tr>
-                                            <td class="collapsing">Teléfono</td>
-                                            <td>{{$data->user->profile->phone}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="collapsing">Facebook</td>
-                                            <td>{{$data->user->profile->facebook}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="collapsing">Twitter</td>
-                                            <td>{{$data->user->profile->twitter}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="collapsing">Otro</td>
-                                            <td>{{$data->user->profile->other}}</td>
-                                        </tr>
+                                        @if( $data->user->profile->phone )
+                                            <tr>
+                                                <td class="collapsing">Teléfono</td>
+                                                <td>{{$data->user->profile->phone}}</td>
+                                            </tr>
+                                        @endif
+                                        @if( $data->user->profile->facebook )
+                                            <tr>
+                                                <td class="collapsing">Facebook</td>
+                                                <td>{{$data->user->profile->facebook}}</td>
+                                            </tr>
+                                        @endif
+                                        @if( $data->user->profile->twitter )
+                                            <tr>
+                                                <td class="collapsing">Twitter</td>
+                                                <td>{{$data->user->profile->twitter}}</td>
+                                            </tr>
+                                        @endif
+                                        @if( $data->user->profile->other )
+                                            <tr>
+                                                <td class="collapsing">Otro</td>
+                                                <td>{{$data->user->profile->other}}</td>
+                                            </tr>
+                                        @endif
                                         </tbody>
                                     </table>
                                 </div>
@@ -114,16 +122,16 @@
             @endif
             @if($other->count() > 0)
                 <hr>
-                <h4>Otras publicaciones de {{$data->user->username}}<h4/>
-                <table class="ui table">
-                    <tbody>
-                    @foreach($other as $item)
-                        <tr>
-                            <td><a href="{{route('home.show', $item->id)}}">{{$item->name}}</a></td>
-                        </tr>
-                    @endforeach
-                    </tbody>
-                </table>
+                <h4>Otras publicaciones de {{ $data->user->username }}<h4/>
+                    <table class="ui table">
+                        <tbody>
+                        @foreach($other as $item)
+                            <tr>
+                                <td><a href="{{route('home.show', $item->id)}}">{{$item->name}}</a></td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
             @endif
         </div>
         <div class="col-md-6">
@@ -132,41 +140,41 @@
                     <td class="collapsing"><b>Usuario:</b></td>
                     <td>{{$data->user->username}}</td>
                 </tr>
-                @if($data->user->profile->employment_situation)
-                <tr>
-                    <td class="collapsing"><b>Situación laboral:</b></td>
-                    <td>{{$data->user->profile->employment_situation}}</td>
-                </tr>
+                @if( $data->user->profile->employment_situation )
+                    <tr>
+                        <td class="collapsing"><b>Situación laboral:</b></td>
+                        <td>{{$data->user->profile->employment_situation}}</td>
+                    </tr>
                 @endif
-                @if($data->user->profile->experience)
-                <tr>
-                    <td class="collapsing"><b>Años de experiencia:</b></td>
-                    <td>{{$data->user->profile->experience}}</td>
-                </tr>
+                @if( $data->user->profile->experience )
+                    <tr>
+                        <td class="collapsing"><b>Años de experiencia:</b></td>
+                        <td>{{$data->user->profile->experience}}</td>
+                    </tr>
                 @endif
-                @if($data->user->profile->study_level)
-                <tr>
-                    <td class="collapsing"><b>Nivel de estudio:</b></td>
-                    <td>{{$data->user->profile->study_level}}</td>
-                </tr>
+                @if( $data->user->profile->study_level )
+                    <tr>
+                        <td class="collapsing"><b>Nivel de estudio:</b></td>
+                        <td>{{$data->user->profile->study_level}}</td>
+                    </tr>
                 @endif
-                @if($data->user->profile->study_title)
-                <tr>
-                    <td class="collapsing"><b>Título:</b></td>
-                    <td>{{$data->user->profile->study_title}}</td>
-                </tr>
+                @if( $data->user->profile->study_title )
+                    <tr>
+                        <td class="collapsing"><b>Título:</b></td>
+                        <td>{{$data->user->profile->study_title}}</td>
+                    </tr>
                 @endif
-                @if($data->user->profile->languages)
-                <tr>
-                    <td class="collapsing"><b>Idioma(s):</b></td>
-                    <td>{{$data->user->profile->languages}}</td>
-                </tr>
+                @if( $data->user->profile->languages )
+                    <tr>
+                        <td class="collapsing"><b>Idioma(s):</b></td>
+                        <td>{{$data->user->profile->languages}}</td>
+                    </tr>
                 @endif
-                @if($data->user->profile->curricular_other)
-                <tr>
-                    <td class="collapsing"><b>Otro:</b></td>
-                    <td>{{$data->user->profile->curricular_other}}</td>
-                </tr>
+                @if( $data->user->profile->curricular_other )
+                    <tr>
+                        <td class="collapsing"><b>Otro:</b></td>
+                        <td>{{$data->user->profile->curricular_other}}</td>
+                    </tr>
                 @endif
             </table>
         </div>

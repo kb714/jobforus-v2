@@ -70,10 +70,23 @@ Artisan::command('check:memberships', function(){
                 //send notification email
                 $message = 'Estimado cliente, su plan ha caducado, puede renovar ingresando a su perfil en nuestra web';
                 Mail::to($item->user->email)->send(new \JobForUs\Mail\NotificationMail($message));
-                //change status
-                $item->update([
-                    'notify_status' => 0
-                ]);
+
+                if( $item->user->profile->user_type == 4 ){
+                    //change status
+                    $item->update([
+                        'notify_status' => 0,
+                        'plan_id' => 1,
+                        'ends_at' => null,
+                        'beginning_at' => null
+                    ]);
+                } else {
+                    $item->update([
+                        'notify_status' => 0,
+                        'plan_id' => 2,
+                        'ends_at' => null,
+                        'beginning_at' => null
+                    ]);
+                }
 
                 $this->comment('End membership');
 
