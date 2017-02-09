@@ -24,7 +24,7 @@
                         <form action="{{ route('users.change-plan') }}" class="text-center" method="POST">
                             {{ csrf_field() }}
                             <input type="hidden" name="action" value="disable">
-                            <input type="hidden" name="id" value="{{$data->id}}">
+                            <input type="hidden" name="id" value="{{ $data->id }}">
                             <div class="help-block">Esta acción es definitiva, tendrá que asignar un nuevo plan después</div>
                             <button class="btn btn-danger">Eliminar Plan</button>
                         </form>
@@ -34,10 +34,10 @@
                             <form action="{{ route('users.change-plan') }}" method="POST">
                                 {{ csrf_field() }}
                                 <input type="hidden" name="action" value="change">
-                                <input type="hidden" name="id" value="{{$data->id}}">
-                                <input type="hidden" name="plan_id" value="{{$item->id}}">
+                                <input type="hidden" name="id" value="{{ $data->id }}">
+                                <input type="hidden" name="plan_id" value="{{ $item->id }}">
                                 <button class="btn btn-success">Cambiar a {{ $item->name }}</button>
-                                por {{$item->quantity}} días ({{$item->getPriceParam()}})
+                                por {{ $item->quantity }} días ({{ $item->getPriceParam() }})
                             </form>
                         @endforeach
                     @endif
@@ -45,11 +45,11 @@
                 <hr>
                 <div class="body">
                     <h4>Información de la cuenta</h4>
-                    <form id="register" action="{{route('users.update', $data->id)}}"
+                    <form id="register" action="{{ route('users.update', $data->id) }}"
                           method="POST">
 
-                        {{csrf_field()}}
-                        {{method_field('PUT')}}
+                        {{ csrf_field() }}
+                        {{ method_field('PUT') }}
 
                         <div class="row">
                             <div class="col-lg-6">
@@ -58,7 +58,7 @@
                                 <div class="form-group">
                                     <div class="form-line{{ $errors->has('username') ? ' error' : '' }}">
                                         <input type="text" id="username" class="form-control" name="username"
-                                               value="{{old('username') ?? $data->username}}">
+                                               value="{{ old('username') ?? $data->username }}">
                                     </div>
                                     @if ($errors->has('username'))
                                         <label class="error">{{ $errors->first('username') }}</label>
@@ -94,7 +94,7 @@
                                     <div class="form-group">
                                         <div class="form-line{{ $errors->has('name') ? ' error' : '' }}">
                                             <input type="text" id="name" class="form-control" name="name"
-                                                   value="{{old('name') ?? $data->profile->name}}">
+                                                   value="{{ old('name') ?? $data->profile->name }}">
                                         </div>
                                         @if ($errors->has('name'))
                                             <label class="error">{{ $errors->first('name') }}</label>
@@ -142,7 +142,7 @@
                                     <div class="form-group">
                                         <div class="form-line{{ $errors->has('phone') ? ' error' : '' }}">
                                             <input type="text" id="phone" class="form-control" name="phone"
-                                                   value="{{old('phone') ?? $data->profile->phone}}">
+                                                   value="{{ old('phone') ?? $data->profile->phone }}">
                                         </div>
                                         @if ($errors->has('phone'))
                                             <label class="error">{{ $errors->first('phone') }}</label>
@@ -159,7 +159,7 @@
                                     <div class="form-group">
                                         <div class="form-line{{ $errors->has('facebook') ? ' error' : '' }}">
                                             <input type="text" id="facebook" class="form-control" name="facebook"
-                                                   value="{{old('facebook') ?? $data->profile->facebook}}">
+                                                   value="{{ old('facebook') ?? $data->profile->facebook }}">
                                         </div>
                                         @if ($errors->has('facebook'))
                                             <label class="error">{{ $errors->first('facebook') }}</label>
@@ -174,7 +174,7 @@
                                     <div class="form-group">
                                         <div class="form-line{{ $errors->has('twitter') ? ' error' : '' }}">
                                             <input type="text" id="twitter" class="form-control" name="twitter"
-                                                   value="{{old('twitter') ?? $data->profile->twitter}}">
+                                                   value="{{ old('twitter') ?? $data->profile->twitter }}">
                                         </div>
                                         @if ($errors->has('twitter'))
                                             <label class="error">{{ $errors->first('twitter') }}</label>
@@ -191,7 +191,7 @@
                                     <div class="form-group">
                                         <div class="form-line{{ $errors->has('other') ? ' error' : '' }}">
                                             <input type="text" id="other" class="form-control" name="other"
-                                                   value="{{old('other') ?? $data->profile->other}}">
+                                                   value="{{ old('other') ?? $data->profile->other }}">
                                         </div>
                                         @if ($errors->has('other'))
                                             <label class="error">{{ $errors->first('other') }}</label>
@@ -206,8 +206,8 @@
                                     <select name="job_type_id" class="form-control show-tick">
                                         @foreach($jobs_types as $item)
                                             <option value="{{$item->id}}"
-                                                    {{$data->profile->job_type_id == $item->id ? 'selected':null}}>
-                                                {{$item->name}}
+                                                    {{ $data->profile->job_type_id == $item->id ? 'selected':null }}>
+                                                {{ $item->name }}
                                             </option>
                                         @endforeach
                                     </select>

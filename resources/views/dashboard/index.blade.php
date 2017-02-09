@@ -68,8 +68,8 @@
                                     <td>{{ $item->getPriceParam() }}</td>
                                     <td>{{ $item->quantity }} días</td>
                                     <td class="collapsing">
-                                        <form action="{{route('dashboard.order')}}" method="POST">
-                                            {{csrf_field()}}
+                                        <form action="{{ route('dashboard.order') }}" method="POST">
+                                            {{ csrf_field() }}
                                             <input type="hidden" name="plan_id" value="{{ $item->id }}">
                                             <button type="submit" class="btn btn-primary">Contratar</button>
                                         </form>
