@@ -41,5 +41,7 @@
 </table>
 <div class="alert alert-success text-center">
     una vez que pague su membresía en webpay.cl deberá esperar a que se acredite su pago, se le enviará
-    un correo de notificación a <b>{{ Auth::user()->email }}</b> cuando su cuenta sea actualizada
+    un correo de notificación a <b>{{ Auth::user()->email }}</b> cuando su cuenta sea actualizada.
+    <br>
+    Si desea acelerar su publicación, notifíquenos de su pago al correo info@jobforus.cl
 </div>

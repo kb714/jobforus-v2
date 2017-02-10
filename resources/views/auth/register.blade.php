@@ -104,10 +104,6 @@
 
                             <legend class="text-center">Datos Personales</legend>
 
-                            <span class="help-block text-center">
-                                <strong>Estos datos se usarán para que seas contactado</strong>
-                            </span>
-
                             {{-- PERSON NAME --}}
                             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                                 <label for="name" class="col-md-4 control-label">Nombre *</label>
@@ -309,6 +305,25 @@
                                 </div>
                             </div>
 
+                            {{-- CPNTACT PREFERENCE --}}
+                            <div v-if="location == 1" class="form-group{{ $errors->has('region_id') ? ' has-error' : '' }}">
+                                <label for="region_id" class="col-md-4 control-label">Región *</label>
+                                <div class="col-md-6">
+                                    <select id="region_id" type="region_id" class="form-control" name="region_id" required>
+                                        @foreach($regions as $item)
+                                            <option value="{{$item->id}}"
+                                                    {{old('region_id') == $item->id ? 'selected' : ''}}>{{$item->name}}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    @if ($errors->has('region_id'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('region_id') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
                         </fieldset>
                         {{-- ./PERSON REGISTRATION FIELDSET --}}
 
@@ -439,7 +454,8 @@
 
                             {{-- COMPANY CONTACT NAME --}}
                             <div class="form-group{{ $errors->has('company_contact_name') ? ' has-error' : '' }}">
-                                <label for="company_contact_name" class="col-md-4 control-label">Nombre persona de contacto *</label>
+                                <label for="company_contact_name" class="col-md-4 control-label">
+                                    Nombre persona de contacto *</label>
 
                                 <div class="col-md-6">
                                     <input id="company_contact_name"
@@ -459,7 +475,8 @@
 
                             {{-- COMPANY CONTACT POSITION --}}
                             <div class="form-group{{ $errors->has('company_contact_position') ? ' has-error' : '' }}">
-                                <label for="company_contact_position" class="col-md-4 control-label">Cargo persona de contacto *</label>
+                                <label for="company_contact_position" class="col-md-4 control-label">
+                                    Cargo persona de contacto *</label>
 
                                 <div class="col-md-6">
                                     <input id="company_contact_position"
@@ -499,7 +516,8 @@
 
                             {{-- COMPANY CONTACT PHONE --}}
                             <div class="form-group{{ $errors->has('company_contact_phone') ? ' has-error' : '' }}">
-                                <label for="company_contact_phone" class="col-md-4 control-label">Teléfono persona de contacto *</label>
+                                <label for="company_contact_phone" class="col-md-4 control-label">
+                                    Teléfono persona de contacto *</label>
 
                                 <div class="col-md-6">
                                     <input id="company_contact_phone"
