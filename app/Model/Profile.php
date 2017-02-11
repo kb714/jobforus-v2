@@ -14,8 +14,13 @@ class Profile extends Model
         'commercial_business', 'industry', 'address', 'company_contact_name',
         'company_contact_position', 'company_contact_email', 'company_contact_phone',
         // curricular others (person)
-        'employment_situation', 'experience', 'study_level', 'study_title', 'languages', 'curricular_other'
+        'employment_situation', 'experience', 'study_level', 'study_title', 'languages', 'curricular_other',
+        // CONTACT PREFERENCES
+        'contact_preference_username', 'contact_preference_name', 'contact_preference_email', 'contact_preference_phone',
+        'contact_preference_other'
     ];
+
+    
 
     /**
      * JobTye relation

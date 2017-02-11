@@ -21,7 +21,7 @@
 
                 {{-- name field --}}
                 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                    <label for="name" class="col-lg-4 control-label">Nombre *</label>
+                    <label for="name" class="col-lg-4 control-label">Título de la carta *</label>
 
                     <div class="col-lg-6">
                         <input id="name"

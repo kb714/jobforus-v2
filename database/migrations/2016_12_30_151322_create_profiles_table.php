@@ -58,6 +58,13 @@ class CreateProfilesTable extends Migration
             $table->string('languages')->nullable();
             $table->string('curricular_other')->nullable();
 
+            // person contact preferences
+            $table->boolean('contact_preference_username')->default((int) FALSE);
+            $table->boolean('contact_preference_name')->default((int) FALSE);
+            $table->boolean('contact_preference_email')->default((int) FALSE);
+            $table->boolean('contact_preference_phone')->default((int) FALSE);
+            $table->boolean('contact_preference_other')->default((int) FALSE);
+
 
             $table->timestamps();
         });

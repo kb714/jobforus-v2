@@ -231,6 +231,96 @@
                         </div>
                     </div>
 
+                    <div class="help-block text-center">
+                        <strong>¿Como desea que lo contacten?</strong>
+                    </div>
+
+                    {{-- CONTACT PREFERENCE FIELD --}}
+                    <div class="form-group{{ $errors->has('contact_preference_username') ? ' has-error' : '' }}">
+                        <div class="checkbox col-md-6 col-md-offset-4">
+                            <label>
+                                <input type="checkbox"
+                                       value="{{ (int) TRUE }}"
+                                       name="contact_preference_username"
+                                       @if(old('contact_preference_username') ?? Auth::user()->profile->contact_preference_username) checked @endif>
+                                Nombre de Usuario
+                                @if ($errors->has('contact_preference_username'))
+                                    <span class="help-block">
+                                                <strong>{{ $errors->first('contact_preference_username') }}</strong>
+                                            </span>
+                                @endif
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group{{ $errors->has('contact_preference_name') ? ' has-error' : '' }}">
+                        <div class="checkbox col-md-6 col-md-offset-4">
+                            <label>
+                                <input type="checkbox"
+                                       value="{{ (int) TRUE }}"
+                                       name="contact_preference_name"
+                                       @if(old('contact_preference_name') ?? Auth::user()->profile->contact_preference_name) checked @endif>
+                                Nombre y Apellido
+                                @if ($errors->has('contact_preference_name'))
+                                    <span class="help-block">
+                                                <strong>{{ $errors->first('contact_preference_name') }}</strong>
+                                            </span>
+                                @endif
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group{{ $errors->has('contact_preference_email') ? ' has-error' : '' }}">
+                        <div class="checkbox col-md-6 col-md-offset-4">
+                            <label>
+                                <input type="checkbox"
+                                       value="{{ (int) TRUE }}"
+                                       name="contact_preference_email"
+                                       @if(old('contact_preference_email') ?? Auth::user()->profile->contact_preference_email) checked @endif>
+                                Correo
+                                @if ($errors->has('contact_preference_email'))
+                                    <span class="help-block">
+                                                <strong>{{ $errors->first('contact_preference_email') }}</strong>
+                                            </span>
+                                @endif
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group{{ $errors->has('contact_preference_phone') ? ' has-error' : '' }}">
+                        <div class="checkbox col-md-6 col-md-offset-4">
+                            <label>
+                                <input type="checkbox"
+                                       value="{{ (int) TRUE }}"
+                                       name="contact_preference_phone"
+                                       @if(old('contact_preference_phone') ?? Auth::user()->profile->contact_preference_phone) checked @endif>
+                                Teléfono
+                                @if ($errors->has('contact_preference_phone'))
+                                    <span class="help-block">
+                                                <strong>{{ $errors->first('contact_preference_phone') }}</strong>
+                                            </span>
+                                @endif
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group{{ $errors->has('contact_preference_other') ? ' has-error' : '' }}">
+                        <div class="checkbox col-md-6 col-md-offset-4">
+                            <label>
+                                <input type="checkbox"
+                                       value="{{ (int) TRUE }}"
+                                       name="contact_preference_other"
+                                       @if(old('contact_preference_other') ?? Auth::user()->profile->contact_preference_other) checked @endif>
+                                Otro
+                                @if ($errors->has('contact_preference_other'))
+                                    <span class="help-block">
+                                                <strong>{{ $errors->first('contact_preference_other') }}</strong>
+                                            </span>
+                                @endif
+                            </label>
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         <div class="col-md-6 col-md-offset-4">
                             <button type="submit" class="btn btn-primary">
@@ -448,7 +538,6 @@
                             @endif
                         </div>
                     </div>
-
 
                     <div class="form-group">
                         <div class="col-md-6 col-md-offset-4">

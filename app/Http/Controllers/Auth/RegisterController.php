@@ -3,6 +3,7 @@
 namespace JobForUs\Http\Controllers\Auth;
 
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Request;
 use JobForUs\Mail\NotificationMail;
 use JobForUs\Model\Location;
 use JobForUs\Model\Region;
@@ -53,7 +54,7 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
+        $array = [
             'username'      => 'required|max:255|unique:users',
             'email'         => 'required|email|max:255|unique:users',
             'password'      => 'required|min:6|max:255|confirmed',
@@ -71,7 +72,7 @@ class RegisterController extends Controller
             'phone'         => 'required_if:user_type,6|min:3|max:255',
             'facebook'      => 'min:3|max:255',
             'twitter'       => 'min:3|max:255',
-            'other'         => 'min:3|max:255',
+            'other'         => 'min:3|max:255|required_if:contact_preference_other,1',
             // COMPANY VALIDATION
             'commercial_business'       => 'required_if:user_type,6|min:3|max:255',
             'industry'                  => 'required_if:user_type,6|min:3|max:255',
@@ -79,8 +80,21 @@ class RegisterController extends Controller
             'company_contact_name'      => 'required_if:user_type,6|min:3|max:255',
             'company_contact_position'  => 'required_if:user_type,6|min:3|max:255',
             'company_contact_email'     => 'required_if:user_type,6|email|min:3|max:255',
-            'company_contact_phone'     => 'required_if:user_type,6|min:3|max:255'
-        ]);
+            'company_contact_phone'     => 'required_if:user_type,6|min:3|max:255',
+        ];
+
+        if(Request::get('user_type') == 4) {
+            $array[] = [
+                // CONTACT PREFERENCES
+                'contact_preference_username'   => 'boolean|required_without_all:contact_preference_name,contact_preference_email,contact_preference_phone,contact_preference_other',
+                'contact_preference_name'       => 'boolean|required_without_all:contact_preference_username,contact_preference_email,contact_preference_phone,contact_preference_other',
+                'contact_preference_email'      => 'boolean|required_without_all:contact_preference_username,contact_preference_name,contact_preference_phone,contact_preference_other',
+                'contact_preference_phone'      => 'boolean|required_without_all:contact_preference_username,contact_preference_name,contact_preference_email,contact_preference_other',
+                'contact_preference_other'      => 'boolean|required_without_all:contact_preference_username,contact_preference_name,contact_preference_email,contact_preference_phone'
+            ];
+        }
+
+        return Validator::make($data, $array);
     }
 
     /**

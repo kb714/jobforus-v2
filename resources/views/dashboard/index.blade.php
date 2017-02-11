@@ -75,6 +75,9 @@
                                         </form>
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td colspan="4">{!! $item->description !!}</td>
+                                </tr>
                             @endforeach
                             </tbody>
                         </table>
