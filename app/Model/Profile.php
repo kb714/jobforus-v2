@@ -20,7 +20,7 @@ class Profile extends Model
         'contact_preference_other'
     ];
 
-    
+
 
     /**
      * JobTye relation
