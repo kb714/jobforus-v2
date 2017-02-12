@@ -28,6 +28,8 @@ class DashboardController extends Controller
         $this->data = [
             'plan' => Plan::where('user_type_id', Auth::user()->profile->user_type)
                 ->where('price', '>', 0)
+                ->orderBy('quantity')
+                ->orderBy('price')
                 ->get()
         ];
 

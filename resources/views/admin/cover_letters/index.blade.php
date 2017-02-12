@@ -30,7 +30,7 @@
                         </thead>
                         <tbody>
                         @foreach($data as $item)
-                            <tr>
+                            <tr @if( $item->status == 0 ) style="border-left: solid 5px #009688; background-color: #E0F2F1;" @endif>
                                 <td class="collapsing">{{$item->name}}</td>
                                 <td>{{$item->user->profile->name}} {{$item->user->profile->last_name}}</td>
                                 <td class="collapsing">{{$item->user->username}}</td>
@@ -38,6 +38,33 @@
                                 <td class="collapsing">{{$item->created_at}}</td>
                                 <td class="collapsing">
                                     <a href="{{route('cover-letters.edit', $item->id)}}" class="btn btn-primary">Ver</a>
+                                    <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#m{{$item->id}}">Eliminar</a>
+                                    {{-- Modal --}}
+                                    <div class="modal fade" id="m{{$item->id}}" tabindex="-1">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                    <h4 class="modal-title" id="myModalLabel">¿Seguro desea eliminar esta carta?</h4>
+                                                    <small>Esta acción es irreversible</small>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form action="{{route('cover-letters.destroy', [$item->id])}}"
+                                                          method="POST"
+                                                          class="text-center">
+
+                                                        {{csrf_field()}}
+                                                        {{method_field('DELETE')}}
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{-- ./ Modal --}}
                                 </td>
                             </tr>
                         @endforeach

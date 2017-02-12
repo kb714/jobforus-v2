@@ -3,6 +3,7 @@
 namespace JobForUs\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use JobForUs\Http\Controllers\Controller;
 use JobForUs\Http\Requests\Admin\CoverLetterPutRequest;
 use JobForUs\Model\CoverLetters;
@@ -54,6 +55,10 @@ class CoverLettersController extends Controller
 
     public function destroy($id)
     {
+        $data = CoverLetters::find($id);
+        $data->delete();
 
+        return Redirect::back()
+            ->with('alert-success', 'Carta eliminada con éxito');
     }
 }

@@ -13,30 +13,34 @@ class JobTypeTableSeeder extends Seeder
     {
         DB::table('job_types')->insert([
             'weight' => 0,
-            'name'  => 'Fin de semana'
+            'name'  => 'A convenir'
         ]);
         DB::table('job_types')->insert([
             'weight' => 1,
-            'name'  => 'Freelance'
+            'name'  => 'Fin de semana'
         ]);
         DB::table('job_types')->insert([
             'weight' => 2,
-            'name'  => 'Home office'
+            'name'  => 'Freelance'
         ]);
         DB::table('job_types')->insert([
             'weight' => 3,
-            'name'  => 'Segundo empleo'
+            'name'  => 'Home office'
         ]);
         DB::table('job_types')->insert([
             'weight' => 4,
-            'name'  => 'Full time'
+            'name'  => 'Segundo empleo'
         ]);
         DB::table('job_types')->insert([
             'weight' => 5,
-            'name'  => 'Part time'
+            'name'  => 'Full time'
         ]);
         DB::table('job_types')->insert([
             'weight' => 6,
+            'name'  => 'Part time'
+        ]);
+        DB::table('job_types')->insert([
+            'weight' => 7,
             'name'  => 'Varios'
         ]);
     }

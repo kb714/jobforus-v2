@@ -89,7 +89,7 @@ Route::group(['namespace' => 'Admin'], function(){
         Route::post('usuarios/cambiar-plan', 'UsersController@changePlan')->name('users.change-plan');
         // CoverLetters route
         Route::resource('cartas', 'CoverLettersController', [
-            'only'  => ['index', 'edit', 'update'],
+            'only'  => ['index', 'edit', 'update', 'destroy'],
             'names' => 'cover-letters'
         ]);
         //page content

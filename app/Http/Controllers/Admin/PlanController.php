@@ -3,10 +3,13 @@
 namespace JobForUs\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use JobForUs\Http\Controllers\Controller;
 use JobForUs\Http\Requests\Admin\PlanPostRequest;
 use JobForUs\Http\Requests\Admin\PlanPutRequest;
+use JobForUs\Model\Membership;
 use JobForUs\Model\Plan;
+use JobForUs\User;
 
 class PlanController extends Controller
 {
@@ -56,8 +59,36 @@ class PlanController extends Controller
 
     public function destroy($id)
     {
-        /*
-         * If a user have a active plan, change for basic plan
-         * */
+        if($id < 3) {
+            return Redirect::back()
+                ->with('alert-success', 'No es posible eliminar los planes básicos, si desea hacer cambios contacte al desarrollador');
+        }
+
+        $plan = Plan::find($id);
+
+        $memberships = Membership::where('plan_id', $plan->id)->get();
+
+        // define plan id
+        $plan_id = 2;
+
+        if( $plan->user_type_id == 4 ){
+            $plan_id = 1;
+
+        }
+
+        // finish memberships
+        foreach($memberships as $membership){
+            $membership->update([
+                'notify_status' => 0,
+                'plan_id' => $plan_id,
+                'ends_at' => null,
+                'beginning_at' => null
+            ]);
+        }
+
+        $plan->delete();
+
+        return Redirect::back()
+            ->with('alert-success', 'Plan eliminado con éxito, cuentas asociadas se les asignó un plan básico');
     }
 }
