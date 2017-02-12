@@ -45,7 +45,12 @@ class UserPutRequest extends FormRequest
                 'study_level'           => 'min:5|max:255',
                 'study_title'           => 'min:5|max:255',
                 'languages'             => 'min:5|max:255',
-                'curricular_other'      => 'min:5|max:255'
+                'curricular_other'      => 'min:5|max:255',
+                'contact_preference_username'   => 'boolean|required_without_all:contact_preference_name,contact_preference_email,contact_preference_phone,contact_preference_other',
+                'contact_preference_name'       => 'boolean|required_without_all:contact_preference_username,contact_preference_email,contact_preference_phone,contact_preference_other',
+                'contact_preference_email'      => 'boolean|required_without_all:contact_preference_username,contact_preference_name,contact_preference_phone,contact_preference_other',
+                'contact_preference_phone'      => 'boolean|required_without_all:contact_preference_username,contact_preference_name,contact_preference_email,contact_preference_other',
+                'contact_preference_other'      => 'boolean|required_without_all:contact_preference_username,contact_preference_name,contact_preference_email,contact_preference_phone'
             ];
         else
             return [

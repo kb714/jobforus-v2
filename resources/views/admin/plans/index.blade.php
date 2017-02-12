@@ -38,9 +38,20 @@
                                     <td>{{$item->name}}</td>
                                     <td class="collapsing">{{$item->getUserTypeParam()}}</td>
                                     <td class="collapsing">{{$item->price}}</td>
-                                    <td class="collapsing">{{$item->quantity}} días</td>
                                     <td class="collapsing">
+                                        @if( $item->quantity == 0 )
+                                            Indefinido
+                                        @else
+                                            {{$item->quantity}} días
+                                        @endif
+                                    </td>
+                                    <td rowspan="2" class="collapsing" style="vertical-align: middle">
                                         <a href="{{route('admin-plans.edit', $item->id)}}">Editar</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5">
+                                        <b>Descripción:</b> {!! $item->description !!}
                                     </td>
                                 </tr>
                             @endforeach

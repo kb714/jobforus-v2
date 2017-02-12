@@ -31,36 +31,46 @@
                                 <div class="modal-body">
                                     <table class="ui table">
                                         <tbody>
-                                        <tr>
-                                            <td class="collapsing">Usuario</td>
-                                            <td>{{$data->user->username}}</td>
-                                        </tr>
+                                        @if( $data->user->profile->contact_preference_username )
+                                            <tr>
+                                                <td class="collapsing">Usuario</td>
+                                                <td>{{ $data->user->username }}</td>
+                                            </tr>
+                                        @endif
+                                        @if( $data->user->profile->contact_preference_name )
+                                            <tr>
+                                                <td class="collapsing">Nombre</td>
+                                                <td>{{ $data->user->profile->name }} {{ $data->user->profile->last_name }}</td>
+                                            </tr>
+                                        @endif
+                                        @if( $data->user->profile->contact_preference_email )
                                         <tr>
                                             <td class="collapsing">Email</td>
-                                            <td>{{$data->user->email}}</td>
+                                            <td>{{ $data->user->email }}</td>
                                         </tr>
-                                        @if( $data->user->profile->phone )
+                                        @endif
+                                        @if( $data->user->profile->contact_preference_phone )
                                             <tr>
                                                 <td class="collapsing">Teléfono</td>
-                                                <td>{{$data->user->profile->phone}}</td>
+                                                <td>{{ $data->user->profile->phone }}</td>
                                             </tr>
                                         @endif
                                         @if( $data->user->profile->facebook )
                                             <tr>
                                                 <td class="collapsing">Facebook</td>
-                                                <td>{{$data->user->profile->facebook}}</td>
+                                                <td>{{ $data->user->profile->facebook }}</td>
                                             </tr>
                                         @endif
                                         @if( $data->user->profile->twitter )
                                             <tr>
                                                 <td class="collapsing">Twitter</td>
-                                                <td>{{$data->user->profile->twitter}}</td>
+                                                <td>{{ $data->user->profile->twitter }}</td>
                                             </tr>
                                         @endif
-                                        @if( $data->user->profile->other )
+                                        @if( $data->user->profile->contact_preference_other )
                                             <tr>
                                                 <td class="collapsing">Otro</td>
-                                                <td>{{$data->user->profile->other}}</td>
+                                                <td>{{ $data->user->profile->other }}</td>
                                             </tr>
                                         @endif
                                         </tbody>

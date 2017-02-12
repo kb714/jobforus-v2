@@ -56,6 +56,8 @@ class PlanController extends Controller
 
     public function destroy($id)
     {
-
+        /*
+         * If a user have a active plan, change for basic plan
+         * */
     }
 }

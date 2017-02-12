@@ -42,7 +42,7 @@
                         <div class="form-group">
                             <div class="form-line{{ $errors->has('description') ? ' error' : '' }}">
                                 <textarea name="description" id="ckeditor">
-                                    {{old('description') ?? $data->description}}
+                                    {!! old('description') ?? $data->description !!}
                                 </textarea>
                             </div>
                             @if ($errors->has('description'))

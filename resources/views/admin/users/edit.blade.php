@@ -31,6 +31,7 @@
                     @else
                         <div class="help-block">Asignar un plan</div>
                         @foreach($plans as $item)
+                            <hr>
                             <form action="{{ route('users.change-plan') }}" method="POST">
                                 {{ csrf_field() }}
                                 <input type="hidden" name="action" value="change">
@@ -357,6 +358,87 @@
                                     </div>
                                 </div>
                                 {{-- ./ curricular_other --}}
+
+                            </div>
+
+                            <div class="row">
+
+                                {{-- contact preferences --}}
+                                <div class="col-lg-12">
+                                    <label class="help-block">Preferencias de contacto (al menos uno es obligatorio) *</label>
+                                    <div class="form-group">
+                                        <div class="form-line{{ $errors->has('contact_preference_username') ? ' error' : '' }}">
+                                            <input type="checkbox"
+                                                   id="contact_preference_username"
+                                                   class="filled-in chk-col-purple"
+                                                   name="contact_preference_username"
+                                                   value="{{ (int) TRUE }}"
+                                                   @if(old('contact_preference_username') ?? $data->profile->contact_preference_username) checked @endif>
+                                            <label for="contact_preference_username">Nombre de usuario</label>
+                                            @if ($errors->has('contact_preference_username'))
+                                                <label class="error">{{ $errors->first('contact_preference_username') }}</label>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-line{{ $errors->has('contact_preference_name') ? ' error' : '' }}">
+                                            <input type="checkbox"
+                                                   id="contact_preference_name"
+                                                   class="filled-in chk-col-purple"
+                                                   name="contact_preference_name"
+                                                   value="{{ (int) TRUE }}"
+                                                   @if(old('contact_preference_name') ?? $data->profile->contact_preference_name) checked @endif>
+                                            <label for="contact_preference_name">Nombre y apellido</label>
+                                            @if ($errors->has('contact_preference_name'))
+                                                <label class="error">{{ $errors->first('contact_preference_name') }}</label>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-line{{ $errors->has('contact_preference_email') ? ' error' : '' }}">
+                                            <input type="checkbox"
+                                                   id="contact_preference_email"
+                                                   class="filled-in chk-col-purple"
+                                                   name="contact_preference_email"
+                                                   value="{{ (int) TRUE }}"
+                                                   @if(old('contact_preference_email') ?? $data->profile->contact_preference_email) checked @endif>
+                                            <label for="contact_preference_email">Correo</label>
+                                            @if ($errors->has('contact_preference_email'))
+                                                <label class="error">{{ $errors->first('contact_preference_email') }}</label>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-line{{ $errors->has('contact_preference_phone') ? ' error' : '' }}">
+                                            <input type="checkbox"
+                                                   id="contact_preference_phone"
+                                                   class="filled-in chk-col-purple"
+                                                   name="contact_preference_phone"
+                                                   value="{{ (int) TRUE }}"
+                                                   @if(old('contact_preference_phone') ?? $data->profile->contact_preference_phone) checked @endif>
+                                            <label for="contact_preference_phone">Teléfono</label>
+                                            @if ($errors->has('contact_preference_phone'))
+                                                <label class="error">{{ $errors->first('contact_preference_phone') }}</label>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-line{{ $errors->has('contact_preference_other') ? ' error' : '' }}">
+                                            <input type="checkbox"
+                                                   id="contact_preference_other"
+                                                   class="filled-in chk-col-purple"
+                                                   name="contact_preference_other"
+                                                   value="{{ (int) TRUE }}"
+                                                   @if(old('contact_preference_other') ?? $data->profile->contact_preference_other) checked @endif>
+                                            <label for="contact_preference_other">Otro</label>
+                                            @if ($errors->has('contact_preference_other'))
+                                                <label class="error">{{ $errors->first('contact_preference_other') }}</label>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- ./ contact preferences --}}
+
 
                             </div>
 
