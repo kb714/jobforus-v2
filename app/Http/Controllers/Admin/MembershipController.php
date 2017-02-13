@@ -25,9 +25,11 @@ class MembershipController extends Controller
     {
         $data = PayStatus::orderBy('status');
 
-        $status = $request->get('status') ?? 0;
+        if ($request->has('status')) {
+            $status = $request->get('status');
 
-        $data->where('status', $status);
+            $data->where('status', $status);
+        }
 
 
         if ($request->has('order')) {

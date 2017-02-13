@@ -19,6 +19,7 @@ class CreatePayStatusesTable extends Migration
             $table->integer('user_id');
             $table->integer('plan_id');
             $table->string('order');
+            $table->tinyInteger('status')->default(0);
 
             $table->timestamps();
         });
