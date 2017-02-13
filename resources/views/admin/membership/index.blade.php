@@ -61,17 +61,29 @@
                             <tbody>
                             @foreach($data as $item)
                                 <tr>
-                                    <td>{{$item->user->profile->name}} {{$item->user->profile->last_name}}</td>
-                                    <td class="collapsing">{{$item->user->username}}</td>
-                                    <td class="collapsing">{{$item->getStatusParam()}}</td>
-                                    <td class="collapsing">{{$item->user->email}}</td>
-                                    <td class="collapsing">{{$item->order}}</td>
+                                    @if($item->user)
+                                        <td>{{ $item->user->profile->name }} {{ $item->user->profile->last_name }}</td>
+                                    @else
+                                        <td><i>eliminado</i></td>
+                                    @endif
+                                    @if($item->user)
+                                        <td class="collapsing">{{ $item->user->username }}</td>
+                                    @else
+                                        <td><i>eliminado</i></td>
+                                    @endif
+                                    <td class="collapsing">{{ $item->getStatusParam() }}</td>
+                                    @if($item->user)
+                                        <td class="collapsing">{{ $item->user->email }}</td>
+                                    @else
+                                        <td><i>eliminado</i></td>
+                                    @endif
+                                    <td class="collapsing">{{ $item->order }}</td>
                                     <td class="collapsing">
-                                        {{$item->plan->name}}
+                                        {{ $item->plan->name }}
                                         <br>
-                                        {{$item->plan->price}}
+                                        {{ $item->plan->price }}
                                     </td>
-                                    <td class="collapsing">{{$item->created_at}}</td>
+                                    <td class="collapsing">{{ $item->created_at }}</td>
                                     <td class="collapsing">
                                         @if($item->status == 0)
                                             {{-- action--}}

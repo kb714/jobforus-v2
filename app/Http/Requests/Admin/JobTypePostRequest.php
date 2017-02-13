@@ -24,7 +24,8 @@ class JobTypePostRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
+            'name'      => 'required|min:3|max:255',
+            'weight'    => 'required|integer'
         ];
     }
 }

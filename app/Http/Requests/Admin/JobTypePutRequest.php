@@ -24,8 +24,9 @@ class JobTypePutRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'sometimes|required|min:3|max:100',
-            'status' => 'sometimes|required|boolean'
+            'name'      => 'sometimes|required|min:3|max:100',
+            'weight'    => 'sometimes|required|integer',
+            'status'    => 'sometimes|required|boolean'
         ];
     }
 }

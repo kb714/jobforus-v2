@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class JobType extends Model
 {
     protected $fillable = [
-        'status'
+        'name', 'weight', 'status'
     ];
 
     public function getStatusParam()
