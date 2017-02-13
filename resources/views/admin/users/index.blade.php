@@ -13,6 +13,37 @@
                 <div class="header">
                     <h2>Lista de usuarios</h2>
                 </div>
+                <div class="body">
+                    <p class="help-block">Filtrar:</p>
+                    <a href="{{ route('users.index') }}"
+                       class="btn btn-warning @if(!Request::has('user_type')) disabled @endif">Todos</a>
+                    <a href="{{ route('users.index', ['user_type' => 4]) }}"
+                       class="btn btn-success @if(Request::get('user_type') == 4) disabled @endif">Personas</a>
+                    <a href="{{ route('users.index', ['user_type' => 6]) }}"
+                       class="btn btn-danger @if(Request::get('user_type') == 6) disabled @endif">Empresas</a>
+                    <div class="help-block">Buscar:</div>
+                    <form action="{{route('users.index')}}">
+                        <div class="row">
+                            <div class="col-md-6">
+                                {{-- order --}}
+                                <label for="identifier">Usuario/Email</label>
+                                <div class="form-group">
+                                    <div class="form-line{{ $errors->has('identifier') ? ' error' : '' }}">
+                                        <input type="text" id="identifier" class="form-control" name="identifier"
+                                               value="{{ old('identifier') ?? Request::get('identifier') }}">
+                                    </div>
+                                    @if ($errors->has('identifier'))
+                                        <label class="error">{{ $errors->first('identifier') }}</label>
+                                    @endif
+                                </div>
+                                {{-- ./ order --}}
+                            </div>
+                            <div class="col-md-6">
+                                <button class="btn btn-primary waves-effect" type="submit">Buscar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
                 @include('layouts._partials._alert')
                 @if($data->count() > 0)
                     <div class="body table-responsive">

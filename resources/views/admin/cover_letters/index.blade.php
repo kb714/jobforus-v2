@@ -15,6 +15,12 @@
                     <h2>Cartas de presentación</h2>
                     <small>Estado de las cartas</small>
                 </div>
+                @if(Request::has('user_id'))
+                    <div class="body">
+                        <p class="help-block">Filtrar:</p>
+                        <a href="{{route('cover-letters.index')}}" class="btn btn-warning">Eliminar Filtro</a>
+                    </div>
+                @endif
                 @include('layouts._partials._alert')
                 <div class="body table-responsive">
                     <table class="table table-condensed table-bordered">
@@ -30,17 +36,23 @@
                         </thead>
                         <tbody>
                         @foreach($data as $item)
-                            <tr @if( $item->status == 0 ) style="border-left: solid 5px #009688; background-color: #E0F2F1;" @endif>
-                                <td class="collapsing">{{$item->name}}</td>
-                                <td>{{$item->user->profile->name}} {{$item->user->profile->last_name}}</td>
-                                <td class="collapsing">{{$item->user->username}}</td>
-                                <td class="collapsing">{{$item->getStatusParam()}}</td>
-                                <td class="collapsing">{{$item->created_at}}</td>
+                            <tr @if( $item->status == 0 && $item->reason == null ) style="border-left: solid 5px #009688; background-color: #E0F2F1;" @endif>
+                                <td class="collapsing">{{ $item->name }}</td>
+                                <td>
+                                    <a href="{{ route('cover-letters.index', ['user_id' => $item->user_id]) }}">
+                                        {{ $item->user->profile->name }} {{ $item->user->profile->last_name }}
+                                    </a>
+                                </td>
                                 <td class="collapsing">
-                                    <a href="{{route('cover-letters.edit', $item->id)}}" class="btn btn-primary">Ver</a>
-                                    <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#m{{$item->id}}">Eliminar</a>
+                                    <a href="{{ route('cover-letters.index', ['user_id' => $item->user_id]) }}">{{ $item->user->username }}</a>
+                                </td>
+                                <td class="collapsing">{{ $item->getStatusParam() }}</td>
+                                <td class="collapsing">{{ $item->created_at }}</td>
+                                <td class="collapsing">
+                                    <a href="{{ route('cover-letters.edit', $item->id) }}" class="btn btn-primary">Ver</a>
+                                    <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#m{{ $item->id }}">Eliminar</a>
                                     {{-- Modal --}}
-                                    <div class="modal fade" id="m{{$item->id}}" tabindex="-1">
+                                    <div class="modal fade" id="m{{ $item->id }}" tabindex="-1">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">

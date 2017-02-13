@@ -23,10 +23,26 @@ class UsersController extends Controller
         $this->middleware('admin');
     }
 
-    public function index()
+    public function index(Request $request)
     {
+
+        $data = User::orderBy('created_at', 'DESC');
+
+        if($request->has('user_type')){
+            $user_type = $request->get('user_type');
+            $data->whereHas('profile', function($q) use($user_type){
+                $q->where('user_type', $user_type);
+            });
+        }
+
+        if($request->has('identifier')){
+            $identifier = $request->get('identifier');
+            $data->where('username', 'like', '%' . $identifier . '%')
+                ->orWhere('email', 'like', '%' . $identifier . '%');
+        }
+
         $this->data = [
-            'data' => User::orderBy('created_at', 'DESC')->paginate(25)
+            'data' => $data->paginate(25)
         ];
 
         return view($this->path.__FUNCTION__, $this->data);

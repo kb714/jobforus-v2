@@ -91,7 +91,68 @@
                         <a href="{{route('cover-letters.index')}}" class="btn btn-default">Volver</a>
 
                     </form>
+
                 </div>
+                @if(count($other) > 0)
+                    {{-- Assoc --}}
+                    <div class="body table-responsive">
+                        <h4>Otras cartas relacionadas</h4>
+                        <table class="table table-condensed table-bordered">
+                            <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Persona</th>
+                                <th>Usuario</th>
+                                <th>Estado</th>
+                                <th>Fecha</th>
+                                <th>Acción</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($other as $item)
+                                <tr @if( $item->status == 0 ) style="border-left: solid 5px #009688; background-color: #E0F2F1;" @endif>
+                                    <td class="collapsing">{{$item->name}}</td>
+                                    <td>{{$item->user->profile->name}} {{$item->user->profile->last_name}}</td>
+                                    <td class="collapsing">{{$item->user->username}}</td>
+                                    <td class="collapsing">{{$item->getStatusParam()}}</td>
+                                    <td class="collapsing">{{$item->created_at}}</td>
+                                    <td class="collapsing">
+                                        <a href="{{route('cover-letters.edit', $item->id)}}" class="btn btn-primary">Ver</a>
+                                        <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#m{{$item->id}}">Eliminar</a>
+                                        {{-- Modal --}}
+                                        <div class="modal fade" id="m{{$item->id}}" tabindex="-1">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                        <h4 class="modal-title" id="myModalLabel">¿Seguro desea eliminar esta carta?</h4>
+                                                        <small>Esta acción es irreversible</small>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form action="{{route('cover-letters.destroy', [$item->id])}}"
+                                                              method="POST"
+                                                              class="text-center">
+
+                                                            {{csrf_field()}}
+                                                            {{method_field('DELETE')}}
+                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{-- ./ Modal --}}
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                    {{-- ./Assoc --}}
+                @endif
             </div>
         </div>
     </div>

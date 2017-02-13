@@ -27,8 +27,6 @@ class MembershipController extends Controller
 
         $status = $request->get('status') ?? 0;
 
-        echo $status;
-
         $data->where('status', $status);
 
 
