@@ -45,7 +45,7 @@
 </div>
 @if(isset($slider))
     <div id="slider-container">
-        <div id="jobforus-slider" class="center-block carousel slide" data-ride="carousel">
+        <div id="jobforus-slider" class="center-block carousel slide" data-ride="carousel" data-interval="15000">
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
@@ -55,9 +55,9 @@
                             Te necesitan. Te buscan. <b>Te encuentran.</b>
                         </div>
                         <div class="form">
-                            <form action="{{route('home.search')}}" class="form-inline">
+                            <form action="{{ route('home.search') }}" class="form-inline">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="q" placeholder="¿A quién buscas?">
+                                    <input type="text" class="form-control" name="q" placeholder="¿A quién buscas? ...">
                                 </div>
                                 <button type="submit" class="btn btn-default"><b>Encontrar</b></button>
                             </form>
@@ -74,7 +74,7 @@
                         <div action="{{route('home.search')}}" class="form">
                             <form class="form-inline">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="q" placeholder="Cargo o área profesional">
+                                    <input type="text" class="form-control" name="q" placeholder="¿A quién buscas? ...">
                                 </div>
                                 <button type="submit" class="btn btn-default"><b>Encontrar</b></button>
                             </form>
