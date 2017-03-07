@@ -83,6 +83,7 @@ Route::group(['namespace' => 'Admin'], function(){
             'names' => 'admin-plans'
         ]);
         // users route
+        Route::get('usuarios/csv', 'UsersController@downloadCSV')->name('users.getcsv');
         Route::resource('usuarios', 'UsersController', [
             'names' => 'users'
         ]);

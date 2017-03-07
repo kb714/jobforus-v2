@@ -44,6 +44,9 @@
                         </div>
                     </form>
                 </div>
+                <div class="body">
+                    <a href="{{ route('users.getcsv') }}" class="btn btn-primary">Descargar CSV</a>
+                </div>
                 @include('layouts._partials._alert')
                 @if($data->count() > 0)
                     <div class="body table-responsive">

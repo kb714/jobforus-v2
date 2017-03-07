@@ -4,6 +4,7 @@ namespace JobForUs\Http\Controllers\Admin;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Mail;
 use JobForUs\Http\Controllers\Controller;
 use JobForUs\Http\Requests\Admin\UserPutRequest;
@@ -153,5 +154,31 @@ class UsersController extends Controller
         }
 
         return redirect()->back()->with('alert-success', 'Plan actualizado con éxito');
+    }
+
+    public function downloadCSV()
+    {
+        $table = User::all();
+        $filename = "usuarios.csv";
+        $handle = fopen($filename, 'w+');
+        fputcsv($handle, ['Nombre', 'Usuario', 'Email', 'Membresia', 'Tipo_de_cuenta']);
+
+        foreach($table as $row) {
+            fputcsv($handle, [
+                $row->profile->name,
+                $row->username,
+                $row->email,
+                $row->membership->plan->name,
+                $row->profile->getUserTypeParam()
+            ]);
+        }
+
+        fclose($handle);
+
+        $headers = array(
+            'Content-Type' => 'text/csv',
+        );
+
+        return response()->download($filename, 'usuarios.csv', $headers);
     }
 }

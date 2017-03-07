@@ -42,6 +42,10 @@ class DashboardController extends Controller
      */
     public function generateOrder(Request $request)
     {
+        if(Auth::user()->payPlanPending()) {
+            return redirect()->back()->with('alert-warning', 'Tiene un plan pendiente de pago');
+        }
+
         $data = Auth::user()->payStatus()->create([
             'plan_id'   => $request->plan_id,
             'order'     => 'PJOB-'.time()
@@ -51,7 +55,7 @@ class DashboardController extends Controller
             'data' => $data
         ];
 
-        return view($this->path.__FUNCTION__, $this->data);
+        return redirect()->back();
     }
 
     /**
